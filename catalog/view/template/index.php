@@ -44,9 +44,6 @@
     </div>
 </header>
 
-<div class="container">
-
-</div>
 
 <div class="container">
     <nav id="menu" class="navbar">
@@ -206,7 +203,7 @@
             </div>
         </div>
         <hr>
-        <p>ProR0ck</p>
+        <p>Developer - ProR0ck</p>
     </div>
 </footer>
 </body>
