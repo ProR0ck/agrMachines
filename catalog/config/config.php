@@ -8,7 +8,7 @@ use PDO;
 class config
 {
     private $host = 'localhost';
-    private $port = '3307';
+    private $port = '8889';
     private $dbName = 'agr_machines';
     private $username = 'root';
     private $password = 'root';
@@ -23,3 +23,5 @@ class config
         }
     }
 }
+$temp = new config();
+$temp->getPdo();

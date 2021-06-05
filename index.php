@@ -1,8 +1,22 @@
 <?php
-//require_once ('catalog/controllers/indexController.php');
 spl_autoload_register(function($class) {
     require_once strtolower(str_replace('\\', '/', $class) . '.php');
 });
+
 use catalog\controllers;
-$page = new controllers\indexController();
-$page->showPage();
+use catalog\routes\route;
+
+$route = new route();
+$curentRoute = $route->getRoute();
+echo $curentRoute;
+
+if ($curentRoute == $route->map['home']){
+    $page = new controllers\indexController();
+    $page->showPage();
+}
+if ($curentRoute == $route->map['product']){
+    echo "продукт";
+}
+if ($curentRoute == $route->map['about']){
+    echo "о нас";
+}
