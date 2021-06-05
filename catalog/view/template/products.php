@@ -5,7 +5,7 @@
             <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="product-thumb transition">
                     <div class="image"><a href="#"><img
-                                    src="../view/image/<?=$product['path']?>" alt="MacBook"
+                                    src="catalog/view/image/<?=$product['path']?>" alt="MacBook"
                                     title="<?=$product['model_name']?>"
                                     class="img-responsive"></a></div>
                     <div class="caption">
@@ -23,6 +23,6 @@
                     </div>
                 </div>
             </div>
-        <?}?>
+        <?php }?>
     </div>
 </div>

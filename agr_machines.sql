@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Jun 03, 2021 at 01:00 PM
+-- Generation Time: Jun 04, 2021 at 02:58 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.4.1
 
@@ -1606,7 +1606,7 @@ INSERT INTO `models` (`id_model`, `model_name`, `id_mark`) VALUES
 (1, 'MT-350', 26),
 (2, 'XD-35.4 AXON', 26),
 (3, 'MT-242', 26),
-(4, 'MT-242 20л.с. ECO-Line', 26),
+(4, 'MT-242 ECO', 26),
 (5, 'XD-65.4', 26),
 (6, 'T-18 ECO-Line', 26),
 (7, '2404', 27),
@@ -1971,6 +1971,16 @@ CREATE TABLE `vehicles_photo` (
   `path` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `vehicles_photo`
+--
+
+INSERT INTO `vehicles_photo` (`id_vehicle`, `path`) VALUES
+(1, 'catmann_mt_350.jpg'),
+(2, 'catmann_xd_35_4_axon.jpg'),
+(3, 'catmann_mt_242_24_.jpg'),
+(4, 'catmann_mt_242_20_eco_line.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -2202,7 +2212,7 @@ ALTER TABLE `vehicles`
 -- Indexes for table `vehicles_photo`
 --
 ALTER TABLE `vehicles_photo`
-  ADD KEY `id_vehicle` (`id_vehicle`);
+  ADD PRIMARY KEY (`id_vehicle`,`path`);
 
 --
 -- Indexes for table `vehicle_attributes`

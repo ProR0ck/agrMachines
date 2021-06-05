@@ -3,19 +3,16 @@
 
 namespace catalog\controllers;
 
-use catalog\models\productModel;
-require_once ("catalog/model/productModel.php");
+use catalog\models\productsModel;
+require_once "catalog/model/productsModel.php";
 
-class homeController
+class indexController
 {
-
     function showPage(){
         include ("catalog/view/template/header.php");
-        $products = new productModel();
+        $products = new productsModel\productsModel();
         $productsArrayOnMainPage = $products->getProducts();
         include ("catalog/view/template/products.php");
         include ("catalog/view/template/footer.php");
     }
 }
-
-
