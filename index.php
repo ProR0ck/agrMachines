@@ -8,15 +8,25 @@ use catalog\routes\route;
 
 $route = new route();
 $curentRoute = $route->getRoute();
-echo $curentRoute;
+$id = $route->id;
+
+$menu = new controllers\menuController();
+$products = new controllers\productsController();
+$footer = new controllers\footerController();
 
 if ($curentRoute == $route->map['home']){
-    $page = new controllers\indexController();
-    $page->showPage();
+    $menu->display();
+    $products->display();
+    $footer->display();
 }
-if ($curentRoute == $route->map['product']){
-    echo "продукт";
+
+if ($curentRoute == $route->map['product'].$id){
+    $menu->display();
+    $products->display($id);
+    $footer->display();
 }
+
 if ($curentRoute == $route->map['about']){
-    echo "о нас";
+    $menu->display();
+    $footer->display();
 }

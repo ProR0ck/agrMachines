@@ -3,6 +3,7 @@
 
 namespace catalog\models;
 require_once 'catalog/config/config.php';
+
 class productsModel extends \catalog\config\config\config
 {
     function getProducts()

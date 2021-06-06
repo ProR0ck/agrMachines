@@ -12,8 +12,9 @@ class config
     private $dbName = 'agr_machines';
     private $username = 'root';
     private $password = 'root';
+    private $mainLink = 'http://localhost:8888/agrMachines/';
 
-    function getPdo()
+    public function getPdo()
     {
         try {
             return $this-> pdo = new PDO("mysql:host=$this->host:$this->port;dbname=$this->dbName","$this->username","$this->password");
@@ -22,6 +23,7 @@ class config
             echo "Невозможно установить соединение с базой данных.";
         }
     }
+    public function getMainLink(){
+        return $this->mainLink;
+    }
 }
-$temp = new config();
-$temp->getPdo();

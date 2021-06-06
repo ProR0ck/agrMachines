@@ -1,3 +1,4 @@
+<?php include "catalog/view/template/linkConfig.php"?>
 <div class="container">
     <h3>Рекомендуем</h3>
     <div class="row">
@@ -5,11 +6,11 @@
             <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="product-thumb transition">
                     <div class="image"><a href="#"><img
-                                    src="catalog/view/image/<?=$product['path']?>" alt="MacBook"
+                                    src="<?=$link?>catalog/view/image/<?=$product['path']?>" alt="<?=$product['category_name']?> <?=$product['model_name']?>"
                                     title="<?=$product['model_name']?>"
                                     class="img-responsive"></a></div>
                     <div class="caption">
-                        <h4><a href="model/<?=$product['id_vehicle']?>"><?=$product['category_name']?> <?=$product['model_name']?></a></h4>
+                        <h4><a href="<?=$link?>product/<?=$product['id_vehicle']?>"><?=$product['category_name']?> <?=$product['model_name']?></a></h4>
                         <p><?=$product['description']?></p>
                         <p class="price">ЦЕНА - <?=$product['price']?>,00 р. <span class="price-tax">Без НДС:<?=$product['price']?>,00 р.</span></p></div>
                     <div class="button-group">

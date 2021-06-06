@@ -6,12 +6,9 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-                <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-                <li><a href="{{ category.href }}">{{ category.name }}</a></li>
-                <li>
-
-                </li>
+                <?php foreach ($categories as $category){?>
+                <li><a href="{{ category.href }}"><?=$category['category_name']?></a></li>
+                <?php }?>
             </ul>
         </div>
     </nav>
