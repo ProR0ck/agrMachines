@@ -20,4 +20,7 @@ class productsModel extends \catalog\config\config\config
         }
         return $productArray;
     }
+    function ggetProductsId($id){
+        $query = "";
+    }
 }

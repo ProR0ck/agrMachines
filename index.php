@@ -10,23 +10,16 @@ $route = new route();
 $curentRoute = $route->getRoute();
 $id = $route->id;
 
-$menu = new controllers\menuController();
-$products = new controllers\productsController();
-$footer = new controllers\footerController();
+$page = new controllers\homeController();
 
 if ($curentRoute == $route->map['home']){
-    $menu->display();
-    $products->display();
-    $footer->display();
+    $page->display();
 }
 
 if ($curentRoute == $route->map['product'].$id){
-    $menu->display();
-    $products->display($id);
-    $footer->display();
+    //$page->display();
 }
 
 if ($curentRoute == $route->map['about']){
-    $menu->display();
-    $footer->display();
+    $page->display();
 }
