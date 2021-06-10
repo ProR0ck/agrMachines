@@ -35,9 +35,12 @@
                             class="btn btn-inverse btn-block btn-lg dropdown-toggle"><i class="fa fa-shopping-cart"></i>
                         <span id="cart-total">Товаров: 0 (0.00р.)</span></button>
                     <ul class="dropdown-menu pull-right">
+                        <?php foreach ($productsInBasket as $product) {?>
                         <li>
-                            <p class="text-center">Ваша корзина пуста!</p>
+                            <p class="text-center"><?=$product['mark_name']?> <?=$product['model_name']?> - <?=$product['price']?> руб.</p>
                         </li>
+                       <?php }?>
+
                     </ul>
                 </div>
             </div>

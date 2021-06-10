@@ -15,6 +15,7 @@
                         <p class="price">ЦЕНА - <?=$product['price']?>,00 р. <span class="price-tax">Без НДС:<?=$product['price']?>,00 р.</span></p></div>
                     <div class="button-group">
                         <button type="button"  data-toggle="tooltip"
+                                onclick="window.location.href = '<?=$link?>add-to-basket/<?=$product['id_vehicle']?>';"
                                 data-original-title="Добавить в корзину"><i class="fa fa-shopping-cart"></i> <span
                                     class="hidden-xs hidden-sm hidden-md">Купить</span></button>
                         <button type="button" data-toggle="tooltip" title=""

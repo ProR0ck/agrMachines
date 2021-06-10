@@ -16,7 +16,9 @@ class route
     public $map= array(
         "home" => "/agrMachines/",
         "product" => "/agrMachines/product/",
-        "about" => "/agrMachines/about/"
+        "about" => "/agrMachines/about/",
+        "addProduct" =>"/agrMachines/add-to-basket/",
+        "deleteBasket"=>"/agrMachines/delete-basket"
     );
     public function getRoute(){
         return $_SERVER['REQUEST_URI'];

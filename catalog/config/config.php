@@ -8,11 +8,11 @@ use PDO;
 class config
 {
     private $host = 'localhost';
-    private $port = '3307';
+    private $port = '8889';
     private $dbName = 'agr_machines';
     private $username = 'root';
     private $password = 'root';
-    private $mainLink = 'http://localhost/agrMachines/';
+    private $mainLink = 'http://localhost:8888/agrMachines/';
 
     public function getPdo()
     {
