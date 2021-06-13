@@ -24,7 +24,8 @@ class route extends config\config
         "addProductToBasket" =>"/agrMachines/add-to-basket/",
         "deleteProductFromBasket"=>"/agrMachines/delete-from-basket/",
         "added" => "/agrMachines/?added",
-        "deleted" => "/agrMachines/?deleted"
+        "deleted" => "/agrMachines/deleted/?deleted",
+        "search" => "/agrMachines/?search="
     );
     public function getRoute(){
         return urldecode($_SERVER['REQUEST_URI']);

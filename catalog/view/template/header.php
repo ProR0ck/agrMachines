@@ -16,17 +16,21 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <div id="logo"> <img src="<?=$link?>/catalog/view/image/logo.png" title="Ваш магазин"
+                <div id="logo"><a href="<?=$link?>" class="gref"><img src="<?=$link?>/catalog/view/image/logo.png" title="Ваш магазин"
                                      alt="Ваш магазин" class="img-responsive">
+                    </a>
                 </div>
             </div>
             <div class="col-sm-5">
-                <div id="search" class="input-group">
-                    <input type="text" name="search" value="" placeholder="Поиск" class="form-control input-lg">
-                    <span class="input-group-btn">
-    <button type="button" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
-  </span>
-                </div>
+                <form method="get" action="<?=$link?>">
+                    <div id="search" class="input-group">
+                        <input type="text" name="search" value="" placeholder="Поиск" class="form-control input-lg">
+                        <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+                     </span>
+                    </div>
+                </form>
+
             </div>
             <div class="col-sm-3">
                 <div id="cart" class="btn-group btn-block">

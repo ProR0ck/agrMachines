@@ -14,7 +14,7 @@ class basketModel extends \catalog\config\config
 
     }
     public function isBasket(){
-        if (count($_SESSION['basket']) > 0){
+        if (isset($_SESSION['basket']) && count($_SESSION['basket']) > 0){
             return true;
         }
         else return false;

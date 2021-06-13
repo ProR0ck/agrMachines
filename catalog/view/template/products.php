@@ -1,4 +1,11 @@
 <div class="container">
+    <?php if (isset($id)) {?>
+    <ul class="breadcrumb">
+
+        <li><a href="<?=$link?>"><i class="fa fa-home"></i></a></li>
+        <li><a href="<?=$route->map['category'].$id?>"><?=$currentCategory?></a></li>
+    </ul>
+    <?php }?>
     <?php if (isset($_GET['added'])) {?>
         <div class="alert alert-success" role="alert">
             <i class="fa fa-refresh fa-spin"></i> Товар успешно добавлен в корзину!
@@ -9,12 +16,19 @@
             <i class="fa fa-refresh fa-spin"></i> Товар успешно удален из корзины!
         </div>
     <?php }?>
-    <h3>Рекомендуем</h3>
+    <?php if (!isset($currentCategory) && !isset($search)) {?>
+    <h3>Все товары</h3>
+    <?php } if (isset($currentCategory)) {?>
+        <h3><?=$currentCategory?></h3>
+
+    <?php }if (isset($search)) {?>
+        <h3>Результаты по запросу "<?=$search?>"</h3>
+    <?php }?>
     <div class="row">
         <?php foreach ($productsArrayOnMainPage as $product){?>
             <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="product-thumb transition">
-                    <div class="image"><a href="#"><img
+                    <div class="image"><a href="<?=$link?>/product/<?=$product['id_vehicle']?>"><img
                                     src="<?=$link?>/catalog/view/image/<?=$product['path']?>" alt="<?=$product['category_name']?> <?=$product['model_name']?>"
                                     title="<?=$product['model_name']?>"
                                     class="img-responsive"></a></div>

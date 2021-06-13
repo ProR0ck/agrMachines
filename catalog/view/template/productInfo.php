@@ -1,7 +1,7 @@
 <div class="container">
     <ul class="breadcrumb">
         <li><a href="<?=$link?>"><i class="fa fa-home"></i></a></li>
-        <li><a href="#"><?=$productInfo['category_name']?></a></li>
+        <li><a href="<?=$route->map['category'].$productInfo['id_category']?>"><?=$productInfo['category_name']?></a></li>
         <li><a href="<?=$route->map['product'].$productInfo['id_vehicle']?>"><?=$title?></a></li>
     </ul>
     <div class="col-sm-8">

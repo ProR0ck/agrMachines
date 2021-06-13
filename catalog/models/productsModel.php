@@ -21,8 +21,7 @@ class productsModel extends \catalog\config\config
             AND v.`id_vehicle` = p.`id_vehicle` 
             AND v.`id_category` = c.`id_category`
             AND p.`is_main` = 1
-            AND c.`category_name` = '{$category}'";
-        $this->getPdo()->exec("set names utf8");
+            AND v.`id_category` = '{$category}'";
         $productArray = $this->getPdo()->query($query)->fetchAll();
         $i = 0;
         foreach ($productArray as $product) {
@@ -38,6 +37,7 @@ class productsModel extends \catalog\config\config
         $query = "SELECT 
             v.`id_vehicle`, 
             c.`category_name`,
+            c.`id_category`,
             mr.`mark_name`, 
             m.`model_name`, 
             mn.`manufacturer_name`,
@@ -118,5 +118,25 @@ class productsModel extends \catalog\config\config
             $totalPrice+=$product['price'];
         }
         return $totalPrice = number_format($totalPrice, 2, ',', ' ')." руб.";;
+    }
+
+    function search($search){
+        $query = "SELECT v.`id_vehicle`, c.`category_name`,m.`model_name`, v.`description`, v.`price`,v.`VIN`, p.`path` 
+            FROM `vehicles` v, `models` m, `vehicles_photo` p, `categories` c
+            WHERE v.`id_model` = m.`id_model`
+            AND v.`id_vehicle` = p.`id_vehicle` 
+            AND v.`id_category` = c.`id_category`
+            AND p.`is_main` = 1
+            AND (c.`category_name` LIKE '%$search%'
+                OR m.`model_name` LIKE '%$search%')";
+        $productArray = $this->getPdo()->query($query)->fetchAll();
+        $i = 0;
+        foreach ($productArray as $product) {
+            $productArray[$i]['description'] = mb_substr($product['description'], 0, 150) . "...";
+            $productArray[$i]['category_name'] = mb_substr($product['category_name'], 0, 11);
+            $productArray[$i]['price'] = number_format($productArray[$i]['price'], 2, ',', ' ')." руб.";
+            $i++;
+        }
+        return $productArray;
     }
 }

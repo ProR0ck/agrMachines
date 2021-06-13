@@ -6,9 +6,9 @@ use catalog\models;
 use catalog\routes;
 
 
-class categoryController
+class searchController
 {
-    public function display($id){
+    public function display($search){
 
         $category = new models\categoriesModel();
         $product = new models\productsModel();
@@ -17,13 +17,12 @@ class categoryController
 
         $link = $route->map['host'];
         $categories = $category->getName();
-        $productsArrayOnMainPage = $product->getProducts($id);
+        $productsArrayOnMainPage = $product->search($search);
         $productsInBasket = $product->getBasketList();
         $productsInBasketTotalPriceArr = $product->getBasketList(1);
         $totalPrice = $product->getBasketTotalPrice($productsInBasketTotalPriceArr);
         $makeOrder = $basket->isBasket();
-        $currentCategory = $category->getName($id);
-        $title = $currentCategory;
+        $title = "agrMachines";
 
         include ("catalog/view/template/header.php");
         include "catalog/view/template/menu.php";

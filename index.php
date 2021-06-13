@@ -2,13 +2,14 @@
 spl_autoload_register(function($class) {
     require_once strtolower(str_replace('\\', '/', $class) . '.php');
 });
+session_start();
+if (isset($_COOKIE['PHPSESSID'])) $_SESSION['name'] = $_COOKIE['PHPSESSID'];
 
 use catalog\controllers;
 use catalog\routes\route;
 use catalog\models;
 
-session_start();
-$_SESSION['name'] = $_COOKIE['PHPSESSID'];
+
 
 $route = new route();
 $curentRoute = $route->getRoute();
@@ -44,4 +45,8 @@ if ($curentRoute == $route->map['addProductToBasket'].$id){
 if ($curentRoute == $route->map['deleteProductFromBasket'].$id){
     $basket = new controllers\basketController();
     $basket->deleteProduct($id);
+}
+if (isset($_GET['search']) && $curentRoute == $route->map['search'].$_GET['search']){
+    $page = new controllers\searchController();
+    $page->display($_GET['search']);
 }
