@@ -4,6 +4,8 @@
 namespace catalog\controllers;
 
 use catalog\models;
+use catalog\routes;
+
 
 class basketController
 {
@@ -12,11 +14,14 @@ class basketController
             $_SESSION['basket'] = [];
         }
         array_push($_SESSION['basket'],$id);
-        print_r($_SESSION['basket']);
-        header("Location: http://localhost:8888/agrMachines/");
+        $_SESSION['basket'] = array_unique($_SESSION['basket']);
+        $route = new routes\route();
+        header("Location: {$route->map['home']}");
     }
 
-    public function delete(){
-        unset($_SESSION['basket']);
+    public function deleteProduct($id){
+        unset($_SESSION['basket'][array_search($id,$_SESSION['basket'])]);
+        $route = new routes\route();
+        header("Location: {$route->map['home']}");
     }
 }

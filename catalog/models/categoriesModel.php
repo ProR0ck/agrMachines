@@ -2,9 +2,9 @@
 
 
 namespace catalog\models;
-require_once 'catalog/config/config.php';
 
-class categoriesModel extends \catalog\config\config\config
+
+class categoriesModel extends \catalog\config\config
 {
     public function getName()
     {

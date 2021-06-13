@@ -1,7 +1,7 @@
 <?php
 
 
-namespace catalog\config\config;
+namespace catalog\config;
 use PDO;
 
 
@@ -12,7 +12,7 @@ class config
     private $dbName = 'agr_machines';
     private $username = 'root';
     private $password = 'root';
-    private $mainLink = 'http://localhost:8888/agrMachines/';
+    const HOST = 'http://localhost:8888/agrMachines';
 
     public function getPdo()
     {
@@ -24,6 +24,6 @@ class config
         }
     }
     public function getMainLink(){
-        return $this->mainLink;
+        return self::HOST;
     }
 }

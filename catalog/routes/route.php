@@ -2,9 +2,10 @@
 
 
 namespace catalog\routes;
+use catalog\config;
 
 
-class route
+class route extends config\config
 {
     function __construct(){
         $routeSigmentsArray = explode('/',$this->getRoute());
@@ -13,12 +14,14 @@ class route
         }
         else $this->id = null;
     }
+
     public $map= array(
+        "host" => self::HOST,
         "home" => "/agrMachines/",
         "product" => "/agrMachines/product/",
         "about" => "/agrMachines/about/",
-        "addProduct" =>"/agrMachines/add-to-basket/",
-        "deleteBasket"=>"/agrMachines/delete-basket"
+        "addProductToBasket" =>"/agrMachines/add-to-basket/",
+        "deleteProductFromBasket"=>"/agrMachines/delete-from-basket/"
     );
     public function getRoute(){
         return $_SERVER['REQUEST_URI'];

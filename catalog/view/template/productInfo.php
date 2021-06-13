@@ -1,4 +1,3 @@
-<?php include "catalog/view/template/linkConfig.php" ?>
 <div class="container">
     <ul class="breadcrumb">
         <li><a href="<?=$link?>"><i class="fa fa-home"></i></a></li>
@@ -7,12 +6,12 @@
     <div class="col-sm-8">
         <ul class="thumbnails">
             <li>
-                <a class="thumbnail" href="<?=$link?>catalog/view/image/<?=$productMainPhoto['path']?>" title="Apple Cinema 30&quot;"><img src="<?=$link?>catalog/view/image/<?=$productMainPhoto['path']?>" title="Apple Cinema 30&quot;" alt="Apple Cinema 30&quot;"></a>
+                <a class="thumbnail" href="<?=$link?>/catalog/view/image/<?=$productMainPhoto['path']?>" title="Apple Cinema 30&quot;"><img src="<?=$link?>/catalog/view/image/<?=$productMainPhoto['path']?>" title="Apple Cinema 30&quot;" alt="Apple Cinema 30&quot;"></a>
             </li>
             <?php foreach ($productPhotos as $photo) {?>
                 <li class="image-additional">
-                    <a class="thumbnail" href="<?=$link?>catalog/view/image/<?=$photo['path']?>" title="Apple Cinema 30&quot;">
-                        <img src="<?=$link?>catalog/view/image/<?=$photo['path']?>" title="Apple Cinema 30&quot;" alt="Apple Cinema 30&quot;">
+                    <a class="thumbnail" href="<?=$link?>/catalog/view/image/<?=$photo['path']?>" title="Apple Cinema 30&quot;">
+                        <img src="<?=$link?>/catalog/view/image/<?=$photo['path']?>" title="Apple Cinema 30&quot;" alt="Apple Cinema 30&quot;">
                     </a>
                 </li>
             <?php }?>
@@ -44,8 +43,11 @@
             <li>Страна: <a href="#"><?=$productInfo['country_name']?></a></li>
             <li>Код товара: Товар <?=$productInfo['id_vehicle']?></li>
             <li>Доступность: <?=$productInfo['stock_status_value']?></li>
-            <li><h2><?=$productInfo['price']?>,00р.</h2></li>
-            <li><button type="button" id="button-cart" data-loading-text="Загрузка..." class="btn btn-primary btn-lg btn-block">В корзину</button></li>
+            <li><h2><?=$productInfo['price']?></h2></li>
+            <li><button type="button" id="button-cart" data-loading-text="Загрузка..." class="btn btn-primary btn-lg btn-block" onclick="window.location.href = '<?=$link?>/add-to-basket/<?=$productInfo['id_vehicle']?>';">
+                    В корзину
+                </button>
+            </li>
         </ul>
     </div>
 </div>

@@ -4,25 +4,24 @@
 namespace catalog\controllers;
 
 use catalog\models;
-require_once "catalog/models/categoriesModel.php";
-require_once "catalog/models/productsModel.php";
+use catalog\routes;
+
 
 class homeController
 {
     public function display(){
-        $title = "agrMachines";
-        $category = new models\categoriesModel();
-        $categories = $category->getName();
-        $products = new models\productsModel();
-        $productsArrayOnMainPage = $products->getProducts();
 
-        if(isset($_SESSION['basket'])){
-            $productsInBasket =[];
-            foreach ($_SESSION['basket'] as $id){
-                array_push($productsInBasket,$products->getInfo($id));
-            }
-        }
-        else $productsInBasket =[];
+        $category = new models\categoriesModel();
+        $product = new models\productsModel();
+        $route = new routes\route();
+
+        $link = $route->map['host'];
+        $categories = $category->getName();
+        $productsArrayOnMainPage = $product->getProducts();
+        $productsInBasket = $product->getBasketList();
+        $productsInBasketTotalPriceArr = $product->getBasketList(1);
+        $totalPrice = $product->getBasketTotalPrice($productsInBasketTotalPriceArr);
+        $title = "agrMachines";
 
         include ("catalog/view/template/header.php");
         include "catalog/view/template/menu.php";

@@ -4,19 +4,26 @@
 namespace catalog\controllers;
 
 use catalog\models;
-require_once "catalog/models/categoriesModel.php";
-require_once "catalog/models/productsModel.php";
+use catalog\routes;
+
 
 class productController
 {
     function display($id){
+
         $category = new models\categoriesModel();
-        $categories = $category->getName();
         $product = new models\productsModel();
+        $route = new routes\route();
+
+        $link = $route->map['host'];
+        $categories = $category->getName();
         $productInfo = $product->getInfo($id);
         $productMainPhoto = $product->getMainPhoto($id);
         $productPhotos = $product->getPhotos($id);
         $productAtributes = $product->getAtributes($id);
+        $productsInBasket = $product->getBasketList();
+        $productsInBasketTotalPriceArr = $product->getBasketList(1);
+        $totalPrice = $product->getBasketTotalPrice($productsInBasketTotalPriceArr);
         $title = $productInfo['mark_name']." ".$productInfo['model_name'];
 
         include ("catalog/view/template/header.php");

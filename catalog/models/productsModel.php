@@ -2,9 +2,9 @@
 
 
 namespace catalog\models;
-require_once 'catalog/config/config.php';
 
-class productsModel extends \catalog\config\config\config
+
+class productsModel extends \catalog\config\config
 {
     function getProducts(){
         $query = "SELECT v.`id_vehicle`, c.`category_name`,m.`model_name`, v.`description`, v.`price`, p.`path` 
@@ -18,12 +18,13 @@ class productsModel extends \catalog\config\config\config
         foreach ($productArray as $product) {
             $productArray[$i]['description'] = mb_substr($product['description'], 0, 150) . "...";
             $productArray[$i]['category_name'] = mb_substr($product['category_name'], 0, 11);
+            $productArray[$i]['price'] = number_format($productArray[$i]['price'], 2, ',', ' ')." руб.";
             $i++;
         }
         return $productArray;
     }
 
-    function getInfo($id){
+    function getInfo($id, $calc = null){
         $query = "SELECT 
             v.`id_vehicle`, 
             c.`category_name`,
@@ -52,7 +53,15 @@ class productsModel extends \catalog\config\config\config
             AND s.`id_stock_status` = v.`id_stock_status`
             AND v.`id_country` = cn.`id_country`
             AND m.`id_model` = {$id}";
-        return $this->getPdo()->query($query)->fetch();
+
+        if (isset($calc)){
+            return $this->getPdo()->query($query)->fetch();
+        }
+        else {
+            $product = $this->getPdo()->query($query)->fetch();
+            $product['price'] = number_format($product['price'], 2, ',', ' ')." руб.";
+            return $product;
+        }
     }
 
     function getMainPhoto($id){
@@ -72,5 +81,31 @@ class productsModel extends \catalog\config\config\config
         LEFT JOIN `attribute_list` a ON a.`id_attribute` = v.`id_attribute`
         WHERE v.`id_vehicle` = {$id}";
         return $this->getPdo()->query($query)->fetchAll();
+    }
+
+    function getBasketList($calc = null){
+        if(isset($_SESSION['basket'])){
+            $productsInBasket =[];
+            if (isset($calc)){
+                foreach ($_SESSION['basket'] as $id){
+                    array_push($productsInBasket,$this->getInfo($id, 1));
+                }
+            }
+            else {
+                foreach ($_SESSION['basket'] as $id){
+                    array_push($productsInBasket,$this->getInfo($id));
+                }
+            }
+        }
+        else $productsInBasket =[];
+        return $productsInBasket;
+    }
+
+    function getBasketTotalPrice($productsInBasket){
+        $totalPrice = 0;
+        foreach ($productsInBasket as $product){
+            $totalPrice+=$product['price'];
+        }
+        return $totalPrice = number_format($totalPrice, 2, ',', ' ')." руб.";;
     }
 }
