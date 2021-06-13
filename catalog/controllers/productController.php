@@ -14,6 +14,7 @@ class productController
         $category = new models\categoriesModel();
         $product = new models\productsModel();
         $route = new routes\route();
+        $basket = new models\basketModel();
 
         $link = $route->map['host'];
         $categories = $category->getName();
@@ -24,6 +25,7 @@ class productController
         $productsInBasket = $product->getBasketList();
         $productsInBasketTotalPriceArr = $product->getBasketList(1);
         $totalPrice = $product->getBasketTotalPrice($productsInBasketTotalPriceArr);
+        $makeOrder = $basket->isBasket();
         $title = $productInfo['mark_name']." ".$productInfo['model_name'];
 
         include ("catalog/view/template/header.php");

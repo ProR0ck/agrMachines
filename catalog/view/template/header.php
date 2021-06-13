@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <div id="logo"> <img src="http://localhost/image/catalog/opencart-logo.png" title="Ваш магазин"
+                <div id="logo"> <img src="<?=$link?>/catalog/view/image/logo.png" title="Ваш магазин"
                                      alt="Ваш магазин" class="img-responsive">
                 </div>
             </div>
@@ -55,19 +55,34 @@
                                         </td>
                                     </tr>
                                     <?php }?>
-                                    <tr>
-                                        <td class="text-right">
-                                            <strong>Итого:</strong>
-                                        </td>
-                                        <td class="text-left">
-                                            <?=$totalPrice?>
-                                        </td>
-                                        <td class="text-left">
-
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
+                            <?php if ($totalPrice > 0) {?>
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class="text-right"><strong>Итого</strong></td>
+                                    <td class="text-right"><?=$totalPrice?></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <?php } else {?>
+
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class="text-center"><strong>Ваша корзина пуста :(</strong></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <?php }?>
+                            <?php if ($makeOrder) {?>
+                                <p class="text-right">
+                                    <a href="http://localhost:8888/opencart/index.php?route=checkout/checkout"><strong> <i class="fa fa-share"></i> Оформить заказ&nbsp;&nbsp;&nbsp;</strong>
+                                    </a>
+                                </p>
+                            <?php }?>
+
                         </li>
                     </ul>
                 </div>

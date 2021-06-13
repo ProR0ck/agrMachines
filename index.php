@@ -18,6 +18,18 @@ if ($curentRoute == $route->map['home']){
     $page = new controllers\homeController();
     $page->display();
 }
+if ($curentRoute == $route->map['category'].$id){
+    $category = new controllers\categoryController();
+    $category->display($id);
+}
+if ($curentRoute == $route->map['added']){
+    $page = new controllers\homeController();
+    $page->display();
+}
+if ($curentRoute == $route->map['deleted']){
+    $page = new controllers\homeController();
+    $page->display();
+}
 if ($curentRoute == $route->map['product'].$id){
     $page = new controllers\productController();
     $page->display($id);

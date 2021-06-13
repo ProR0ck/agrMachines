@@ -2,6 +2,7 @@
     <ul class="breadcrumb">
         <li><a href="<?=$link?>"><i class="fa fa-home"></i></a></li>
         <li><a href="#"><?=$productInfo['category_name']?></a></li>
+        <li><a href="<?=$route->map['product'].$productInfo['id_vehicle']?>"><?=$title?></a></li>
     </ul>
     <div class="col-sm-8">
         <ul class="thumbnails">
@@ -42,6 +43,7 @@
             <li>Производитель: <a href="#"><?=$productInfo['manufacturer_name']?></a></li>
             <li>Страна: <a href="#"><?=$productInfo['country_name']?></a></li>
             <li>Код товара: Товар <?=$productInfo['id_vehicle']?></li>
+            <li>VIN: <strong><?=$productInfo['VIN']?></strong></li>
             <li>Доступность: <?=$productInfo['stock_status_value']?></li>
             <li><h2><?=$productInfo['price']?></h2></li>
             <li><button type="button" id="button-cart" data-loading-text="Загрузка..." class="btn btn-primary btn-lg btn-block" onclick="window.location.href = '<?=$link?>/add-to-basket/<?=$productInfo['id_vehicle']?>';">

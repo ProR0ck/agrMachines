@@ -16,12 +16,12 @@ class basketController
         array_push($_SESSION['basket'],$id);
         $_SESSION['basket'] = array_unique($_SESSION['basket']);
         $route = new routes\route();
-        header("Location: {$route->map['home']}");
+        header("Location: {$route->map['added']}");
     }
 
     public function deleteProduct($id){
         unset($_SESSION['basket'][array_search($id,$_SESSION['basket'])]);
         $route = new routes\route();
-        header("Location: {$route->map['home']}");
+        header("Location: {$route->map['deleted']}");
     }
 }

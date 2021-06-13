@@ -2,14 +2,13 @@
 
 
 namespace catalog\controllers;
-
 use catalog\models;
 use catalog\routes;
 
 
-class homeController
+class categoryController
 {
-    public function display(){
+    public function display($id){
 
         $category = new models\categoriesModel();
         $product = new models\productsModel();
@@ -18,7 +17,7 @@ class homeController
 
         $link = $route->map['host'];
         $categories = $category->getName();
-        $productsArrayOnMainPage = $product->getProducts();
+        $productsArrayOnMainPage = $product->getProducts($id);
         $productsInBasket = $product->getBasketList();
         $productsInBasketTotalPriceArr = $product->getBasketList(1);
         $totalPrice = $product->getBasketTotalPrice($productsInBasketTotalPriceArr);

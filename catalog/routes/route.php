@@ -18,12 +18,15 @@ class route extends config\config
     public $map= array(
         "host" => self::HOST,
         "home" => "/agrMachines/",
+        "category" => "/agrMachines/category/",
         "product" => "/agrMachines/product/",
         "about" => "/agrMachines/about/",
         "addProductToBasket" =>"/agrMachines/add-to-basket/",
-        "deleteProductFromBasket"=>"/agrMachines/delete-from-basket/"
+        "deleteProductFromBasket"=>"/agrMachines/delete-from-basket/",
+        "added" => "/agrMachines/?added",
+        "deleted" => "/agrMachines/?deleted"
     );
     public function getRoute(){
-        return $_SERVER['REQUEST_URI'];
+        return urldecode($_SERVER['REQUEST_URI']);
     }
 }
