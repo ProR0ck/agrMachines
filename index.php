@@ -50,3 +50,19 @@ if (isset($_GET['search']) && $curentRoute == $route->map['search'].$_GET['searc
     $page = new controllers\searchController();
     $page->display($_GET['search']);
 }
+if ($curentRoute == $route->map['newOrder']){
+    $page = new controllers\orderController();
+    $page->display();
+}
+if ($curentRoute == $route->map['register']){
+    $page = new controllers\accountController();
+    $page->display("register");
+}
+if ($curentRoute == $route->map['login']){
+    $page = new controllers\accountController();
+    $page->display("login");
+}
+if (isset($_GET['confirm'])){
+    $page = new controllers\registerController();
+    $page->display($_GET);
+}

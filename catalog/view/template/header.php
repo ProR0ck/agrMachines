@@ -10,8 +10,26 @@
     <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css"/>
     <link href="<?=$link?>/catalog/view/stylesheet/stylesheet.css" rel="stylesheet">
     <script src="<?=$link?>/catalog/view/javascript/common.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.maskedinput@1.4.1/src/jquery.maskedinput.min.js" type="text/javascript"></script>
 </head>
 <body>
+<nav id="top">
+    <div class="container">
+
+        <div id="top-links" class="nav pull-right">
+            <ul class="list-inline">
+                <li><a href="http://localhost:8888/opencart/index.php?route=information/contact"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">123456789</span></li>
+                <li class="dropdown"><a href="http://localhost:8888/opencart/index.php?route=account/account" title="Личный кабинет" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">Личный кабинет</span> <span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="<?=$route->map['register']?>">Регистрация</a></li>
+                        <li><a href="<?=$route->map['login']?>">Авторизация</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <header>
     <div class="container">
         <div class="row">
@@ -82,7 +100,7 @@
                             <?php }?>
                             <?php if ($makeOrder) {?>
                                 <p class="text-right">
-                                    <a href="http://localhost:8888/opencart/index.php?route=checkout/checkout"><strong> <i class="fa fa-share"></i> Оформить заказ&nbsp;&nbsp;&nbsp;</strong>
+                                    <a href="<?=$route->map['newOrder']?>"><strong> <i class="fa fa-share"></i> Оформить заказ&nbsp;&nbsp;&nbsp;</strong>
                                     </a>
                                 </p>
                             <?php }?>
