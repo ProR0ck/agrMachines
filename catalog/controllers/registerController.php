@@ -8,7 +8,7 @@ use catalog\routes;
 
 class registerController
 {
-    public function display($data)
+    public function register($data)
     {
 
         $category = new models\categoriesModel();
@@ -16,6 +16,7 @@ class registerController
         $route = new routes\route();
         $basket = new models\basketModel();
         $chek = new models\registerModel();
+        $user = new models\loginModel();
 
         $link = $route->map['host'];
         $categories = $category->getName();
@@ -30,14 +31,24 @@ class registerController
         $surnameError = $chek->fullName($data['surname']);
         $patronymicError = $chek->fullName($data['patronymic']);
         $passwordError = $chek->coincidence($data['password'],$data['confirm']);
-
         include("catalog/view/template/header.php");
         include "catalog/view/template/menu.php";
         if (($nameError == null) && ($surnameError == null) && ($patronymicError == null) && ($passwordError == null)){
-            $chek->enterInDb($data);
-            include "catalog/view/template/login.php";
+            if ($data['flag'] == 'insert'){
+                $result = $chek->insert($data);
+                include "catalog/view/template/login.php";
+            }
+
+            elseif ($data['flag'] == 'update'){
+                $updateResult = $chek->update($data);
+                $user->login($data['e_mail'],$data['password']);
+                include "catalog/view/template/register.php";
+            }
         }
-        else include("catalog/view/template/register.php");
+        else {
+            include "catalog/view/template/register.php";
+        }
         include("catalog/view/template/footer.php");
     }
+
 }

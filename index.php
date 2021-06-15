@@ -4,7 +4,8 @@ spl_autoload_register(function($class) {
 });
 session_start();
 if (isset($_COOKIE['PHPSESSID'])) $_SESSION['name'] = $_COOKIE['PHPSESSID'];
-
+//print_r($_SESSION);
+//session_destroy();
 use catalog\controllers;
 use catalog\routes\route;
 use catalog\models;
@@ -13,6 +14,9 @@ use catalog\models;
 
 $route = new route();
 $curentRoute = $route->getRoute();
+//echo $route->map['localhost'].$curentRoute;
+//echo "<br>";
+//echo $_SERVER['HTTP_REFERER'];
 $id = $route->id;
 
 if ($curentRoute == $route->map['home']){
@@ -51,8 +55,12 @@ if (isset($_GET['search']) && $curentRoute == $route->map['search'].$_GET['searc
     $page->display($_GET['search']);
 }
 if ($curentRoute == $route->map['newOrder']){
-    $page = new controllers\orderController();
-    $page->display();
+    $order = new controllers\orderController();
+    $order->display();
+}
+if ($curentRoute == $route->map['newOrderComplete']){
+    $order = new controllers\orderController();
+    $order->display($_POST);
 }
 if ($curentRoute == $route->map['register']){
     $page = new controllers\accountController();
@@ -62,7 +70,19 @@ if ($curentRoute == $route->map['login']){
     $page = new controllers\accountController();
     $page->display("login");
 }
-if (isset($_GET['confirm'])){
-    $page = new controllers\registerController();
-    $page->display($_GET);
+if ($curentRoute == $route->map['registerChek']){
+    $user = new controllers\registerController();
+    $user->register($_POST);
+}
+if ($curentRoute == $route->map['logChek']){
+    $user = new controllers\loginController();
+    $user->login($_POST);
+}
+if ($curentRoute == $route->map['logout']){
+    $user = new controllers\loginController();
+    $user->logout();
+}
+if ($curentRoute == $route->map['userInfo']){
+    $user = new controllers\userInfoController();
+    $user->display();
 }

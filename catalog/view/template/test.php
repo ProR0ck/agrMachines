@@ -1,7 +1,3 @@
 <?php
-include_once('../../controllers/controller.php');
-$productArr = getProductsOnMainPage();
-foreach ($productArr as $product)
-{
-    echo $product['id_vehicle'];
-}
+date_default_timezone_set("Europe/Moscow");
+echo date("d.m.Y H:i:s");

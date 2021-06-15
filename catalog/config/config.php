@@ -13,6 +13,7 @@ class config
     private $username = 'root';
     private $password = 'root';
     const HOST = 'http://localhost:8888/agrMachines';
+    const LOCALHOST = 'http://localhost:8888';
 
     public function getPdo()
     {

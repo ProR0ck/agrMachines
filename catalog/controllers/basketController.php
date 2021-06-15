@@ -16,12 +16,17 @@ class basketController
         array_push($_SESSION['basket'],$id);
         $_SESSION['basket'] = array_unique($_SESSION['basket']);
         $route = new routes\route();
-        header("Location: {$route->map['added']}");
+        header("Location: ".$_SERVER['HTTP_REFERER']);
     }
-
     public function deleteProduct($id){
         unset($_SESSION['basket'][array_search($id,$_SESSION['basket'])]);
         $route = new routes\route();
-        header("Location: {$route->map['deleted']}");
+        if ($_SERVER['HTTP_REFERER'] == $route->map['localhost'].$route->map['logChek']){
+            header("Location: {$route->map['userInfo']}");
+        }
+        elseif ($_SERVER['HTTP_REFERER'] == $route->map['localhost'].$route->map['registerChek']){
+            header("Location: {$route->map['login']}");
+        }
+        else header("Location: ".$_SERVER['HTTP_REFERER']);
     }
 }

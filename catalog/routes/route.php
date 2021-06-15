@@ -14,9 +14,9 @@ class route extends config\config
         }
         else $this->id = null;
     }
-
     public $map= array(
         "host" => self::HOST,
+        "localhost" => self::LOCALHOST,
         "home" => "/agrMachines/",
         "category" => "/agrMachines/category/",
         "product" => "/agrMachines/product/",
@@ -27,8 +27,14 @@ class route extends config\config
         "deleted" => "/agrMachines/deleted/?deleted",
         "search" => "/agrMachines/?search=",
         "newOrder" => "/agrMachines/new-order/",
+        "newOrderComplete" => "/agrMachines/new-order/complete",
         "login" => "/agrMachines/account/login",
+        "logChek" => "/agrMachines/account/login-chek",
         "register" => "/agrMachines/account/register",
+        "registerChek" => "/agrMachines/account/register-chek",
+        "authorization" => "/agrMachines/account/authorization",
+        "logout" => "/agrMachines/account/logout",
+        "userInfo" => "/agrMachines/account/info",
     );
     public function getRoute(){
         return urldecode($_SERVER['REQUEST_URI']);

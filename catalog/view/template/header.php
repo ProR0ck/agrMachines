@@ -16,15 +16,34 @@
 <body>
 <nav id="top">
     <div class="container">
-
         <div id="top-links" class="nav pull-right">
             <ul class="list-inline">
                 <li><a href="http://localhost:8888/opencart/index.php?route=information/contact"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md">123456789</span></li>
-                <li class="dropdown"><a href="http://localhost:8888/opencart/index.php?route=account/account" title="Личный кабинет" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">Личный кабинет</span> <span class="caret"></span></a>
+                <li class="dropdown">
+                    <?php if (!isset($_SESSION['log'])) {?>
+                    <a href="http://localhost:8888/opencart/index.php?route=account/account" title="Личный кабинет" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                        <span class="hidden-xs hidden-sm hidden-md">
+                            Личный кабинет
+                        </span> <span class="caret"></span>
+                    </a>
+                    <?php } else {?>
+                        <a href="<?=$route->map['userInfo']?>" title="Личный кабинет" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                            <span class="hidden-xs hidden-sm hidden-md">
+                            <?=$_SESSION['surname']?> <?=$_SESSION['user_name']?>
+                        </span> <span class="caret"></span>
+                        </a>
+                    <?php }?>
+                    <?php if (!isset($_SESSION['log'])) {?>
                     <ul class="dropdown-menu dropdown-menu-right">
                         <li><a href="<?=$route->map['register']?>">Регистрация</a></li>
                         <li><a href="<?=$route->map['login']?>">Авторизация</a></li>
                     </ul>
+                    <?php } else {?>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="<?=$route->map['logout']?>">Выход</a></li>
+                        <li><a href="<?=$route->map['userInfo']?>">Посмотреть информацию</a></li>
+                    </ul>
+                    <?php }?>
                 </li>
             </ul>
         </div>
@@ -69,7 +88,7 @@
                                         </td>
                                         <td class="text-center">
                                             <button type="button"
-                                                    onclick= "window.location.href = '<?=$link?>/delete-from-basket/<?=$product['id_vehicle']?>';"
+                                                    onclick= "window.location.href = '<?=$route->map['deleteProductFromBasket'].$product['id_vehicle']?>';"
                                                     title="Удалить"
                                                     class="btn btn-danger btn-xs">
                                                 <i class="fa fa-times"></i>

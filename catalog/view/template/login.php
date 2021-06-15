@@ -4,9 +4,10 @@
         <li><a href="<?=$route->map['login']?>">Личный кабинет</a></li>
         <li><a href="<?=$route->map['login']?>"">Авторизация</a></li>
     </ul>
-    <?php if(isset($chek) && $chek == true) {?>
+    <?php if(isset($result) && $result != null) {?>
         <div class="alert alert-success" role="alert">
-            <i class="fa fa-refresh fa-spin"></i> Регистрация прошла успешно! Выполните вход в личный кабинет.
+            <i class="fa fa-refresh fa-spin"></i> Регистрация выполненна успешно! Авторизуйтесь в
+            <a href="<?=$route->map['login']?>">личном кабинете</a>.
         </div>
     <?php }?>
     <div class="row">                <div id="content" class="col-sm-9">      <div class="row">
@@ -21,17 +22,22 @@
                     <div class="well">
                         <h2>Я уже зарегистрирован</h2>
                         <p><strong>Авторизация</strong></p>
-                        <form action="http://localhost:8888/opencart/index.php?route=account/login" method="post" enctype="multipart/form-data">
+                        <form action="<?=$route->map['logChek']?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label class="control-label" for="input-email">E-Mail:</label>
-                                <input type="text" name="email" value="" placeholder="E-Mail:" id="input-email" class="form-control">
+                                <input type="text" name="log" value="" placeholder="E-Mail:" id="input-email" class="form-control">
+                                <?php if (isset($result) && $result == false) {?>
+                                <div class="alert alert-danger" role="alert">
+                                    <i class="fa fa-refresh fa-spin"></i> Некорректный логин или пароль
+                                </div>
+                                <?php }?>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="input-password">Пароль:</label>
-                                <input type="password" name="password" value="" placeholder="Пароль:" id="input-password" class="form-control">
+                                <input type="password" name="pass" value="" placeholder="Пароль:" id="input-password" class="form-control">
                             </div>
+                            <input type="hidden" name="login">
                             <input type="submit" value="Войти" class="btn btn-primary">
-                            <input type="hidden" name="redirect" value="http://localhost:8888/opencart/index.php?route=account/account">
                         </form>
                     </div>
                 </div>
