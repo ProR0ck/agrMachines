@@ -9,7 +9,7 @@ class categoriesModel extends \catalog\config\config
     public function getName($id = null)
     {
         if (isset($id)){
-            $query = "SELECT `category_name` FROM `categories` WHERE `id_category` = $id";
+            $query = "SELECT `category_name` FROM `categories` WHERE `id_category` = '{$id}'";
             return $this->getPdo()->query($query)->fetch()[0];
         }
         else {

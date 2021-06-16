@@ -12,7 +12,7 @@ class loginModel extends \catalog\config\config
        `passport_series`, `passport_ID`, `e_mail`, `phone_number`,
        `address`, `id_role`, `log`, `pass`, `photo_path` 
         FROM `users`
-        WHERE `log`= '{$log}' AND `pass`= '{$pass}'";
+        WHERE `log`= '{$log}' AND `pass`= '{$pass}' AND `id_role` = '2'";
 
         $userData = $this->getPdo()->query($query)->fetch();
 

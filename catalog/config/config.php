@@ -18,7 +18,7 @@ class config
     public function getPdo()
     {
         try {
-            return $this-> pdo = new PDO("mysql:host=$this->host:$this->port;dbname=$this->dbName","$this->username","$this->password");
+            return $this->pdo = new PDO("mysql:host=$this->host:$this->port;dbname=$this->dbName","$this->username","$this->password");
         }
         catch (PDOException $e){
             echo "Невозможно установить соединение с базой данных.";

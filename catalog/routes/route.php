@@ -8,11 +8,11 @@ use catalog\config;
 class route extends config\config
 {
     function __construct(){
-        $routeSigmentsArray = explode('/',$this->getRoute());
-        if (isset($routeSigmentsArray[3])){
-            $this->id = $routeSigmentsArray[3];
+        $this->id = null;
+        $arr = explode('/',$this->getRoute());
+        foreach ($arr as $item){
+            if (intval($item)) $this->id = $item;
         }
-        else $this->id = null;
     }
     public $map= array(
         "host" => self::HOST,
@@ -41,8 +41,18 @@ class route extends config\config
         "adminAuth"=>"/agrMachines/admin/auth",
         "adminSignIn"=>"/agrMachines/admin/sign-in",
         "adminSignOut"=>"/agrMachines/admin/sign-out",
+        "adminCategories"=>"/agrMachines/admin/categories",
+        "adminCategoriesUpdate"=>"/agrMachines/admin/categories/update/",
+        "adminCategoriesUpdateComplete"=>"/agrMachines/admin/categories/update/complete",
     );
     public function getRoute(){
         return urldecode($_SERVER['REQUEST_URI']);
+    }
+
+    public function safeExit(){
+        if (!(strpos($this->getRoute(),"admin")) && (isset($_SESSION['admin']))){
+            session_destroy();
+            header("Location: {$this->map['home']}");
+        }
     }
 }

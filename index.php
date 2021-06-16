@@ -8,12 +8,11 @@ if (isset($_COOKIE['PHPSESSID'])) $_SESSION['name'] = $_COOKIE['PHPSESSID'];
 use catalog\controllers;
 use catalog\routes\route;
 use admin\controller;
-use admin\models\isUserModel;
+//use admin\models\isUserModel;
 //use catalog\models;
 
-
-
 $route = new route();
+$route->safeExit();//безопасный выход из админки
 $curentRoute = $route->getRoute();
 $id = $route->id;
 
@@ -107,4 +106,16 @@ if ($curentRoute == $route->map['adminSignIn']){
 if ($curentRoute == $route->map['adminSignOut']){
     $user = new controller\logController();
     $user->signOut();
+}
+if ($curentRoute == $route->map['adminCategories']){
+    $page = new controller\categoryController();
+    $page->display();
+}
+if ($curentRoute == $route->map['adminCategoriesUpdate'].$id){
+    $page = new controller\categoryController();
+    $page->showUpdate($id);
+}
+if ($curentRoute == $route->map['adminCategoriesUpdateComplete']){
+    $page = new controller\categoryController();
+    $page->makeUpdate($_POST);
 }

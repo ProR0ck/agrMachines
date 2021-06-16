@@ -21,7 +21,6 @@ class logController extends isUserModel
         }
         else header("Location: {$route->map['adminHome']}");
     }
-
     public function signIn($data){
         $route = new routes\route();
         $user = new logModel();

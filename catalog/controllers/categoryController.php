@@ -2,6 +2,7 @@
 
 
 namespace catalog\controllers;
+
 use catalog\models;
 use catalog\routes;
 

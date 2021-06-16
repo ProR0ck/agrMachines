@@ -4,16 +4,14 @@
 namespace admin\models;
 
 
-class isUserModel
+use catalog\routes\route;
+
+class isUserModel extends route
 {
     function __construct(){
-        if (isset($_SESSION['admin']))
+        if (isset($_SESSION['admin']) || isset($_SESSION['manager']))
             $this->is_admin = true;
-        else
+        elseif (!isset($_SESSION['admin']) && !isset($_SESSION['manager']))
             $this->is_admin = false;
-        if (isset($_SESSION['manager']))
-            $this->is_manager = true;
-        else
-            $this->is_manager = true;
     }
 }

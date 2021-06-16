@@ -4,18 +4,18 @@
             <i class="fa fa-user" aria-hidden="true"></i>
         </div>
         <div>
-            <h4>John Doe</h4>
-            <small>Administrator</small></div>
+            <h4><?=$_SESSION['surname']?> <?=$_SESSION['user_name'] ?></h4>
+            <small><?=$_SESSION['role_name']?></small></div>
     </div>
     <ul id="menu">
         <li id="menu-dashboard">
-            <a href="http://localhost:8888/opencart/admin/index.php?route=common/dashboard&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we"><i class="fa fa-dashboard fw"></i> <span>Панель управления</span></a>
+            <a href="<?=$this->map['adminHome']?>"><i class="fa fa-dashboard fw"></i> <span>Панель управления</span></a>
         </li>
         <li id="menu-catalog">
             <a class="parent"><i class="fa fa-tags fw"></i> <span>Каталог</span></a>
             <ul class="collapse">
                 <li>
-                    <a href="http://localhost:8888/opencart/admin/index.php?route=catalog/category&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Категории</a>
+                    <a href="<?=$this->map['adminCategories']?>">Категории</a>
                 </li>
                 <li>
                     <a class="parent">Товары</a>

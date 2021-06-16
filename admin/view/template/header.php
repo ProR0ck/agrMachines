@@ -4,7 +4,7 @@
     </div>
     <ul class="nav pull-right">
         <li>
-            <a href="<?=$route->map['adminSignOut']?>"><span class="hidden-xs hidden-sm hidden-md">Выход</span> <i class="fa fa-sign-out fa-lg"></i></a>
+            <a href="<?=$this->map['adminSignOut']?>"><span class="hidden-xs hidden-sm hidden-md">Выход</span> <i class="fa fa-sign-out fa-lg"></i></a>
         </li>
     </ul>
 </header>
