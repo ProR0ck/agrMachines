@@ -7,17 +7,17 @@
                     <h1 class="panel-title"><i class="fa fa-lock"></i> Введите логин и пароль</h1>
                 </div>
                 <div class="panel-body">
-                    <form action="http://localhost:8888/opencart/admin/index.php?route=common/login" method="post" enctype="multipart/form-data">
+                    <form action="<?=$route->map['adminSignIn']?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="input-username">Логин</label>
                             <div class="input-group"><span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" name="username" value="" placeholder="Логин" id="input-username" class="form-control">
+                                <input type="text" name="log" value="" placeholder="Логин" id="input-username" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="input-password">Пароль</label>
                             <div class="input-group"><span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" name="password" value="" placeholder="Пароль" id="input-password" class="form-control">
+                                <input type="password" name="pass" value="" placeholder="Пароль" id="input-password" class="form-control">
                             </div>
                         </div>
                         <div class="text-right">

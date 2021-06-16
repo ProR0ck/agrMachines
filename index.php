@@ -96,3 +96,15 @@ if ($curentRoute == $route->map['adminHome']){
     $admin = new controller\homeController();
     $admin->display();
 }
+if ($curentRoute == $route->map['adminAuth']){
+    $user = new controller\logController();
+    $user->display();
+}
+if ($curentRoute == $route->map['adminSignIn']){
+    $user = new controller\logController();
+    $user->signIn($_POST);
+}
+if ($curentRoute == $route->map['adminSignOut']){
+    $user = new controller\logController();
+    $user->signOut();
+}

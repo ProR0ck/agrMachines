@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>Панель управления</title>
+    <title><?=$title?></title>
     <base href="<?=$link?>/admin/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <script type="text/javascript" src="view/javascript/jquery/jquery-2.1.1.min.js"></script>
