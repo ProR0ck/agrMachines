@@ -27,6 +27,11 @@
                 <h3 class="panel-title"><i class="fa fa-list"></i> Список категорий</h3>
             </div>
             <div class="panel-body">
+                <?php if($success) {?>
+                    <div class="alert alert-success" role="alert">
+                        <i class="fa fa-refresh fa-spin"></i> Данные успешно записаны!
+                    </div>
+                <?php }?>
                 <form action="<?=$this->map['adminHome']?>" method="get" enctype="multipart/form-data" id="form-category">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">

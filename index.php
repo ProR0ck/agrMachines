@@ -119,3 +119,7 @@ if ($curentRoute == $route->map['adminCategoriesUpdateComplete']){
     $page = new controller\categoryController();
     $page->makeUpdate($_POST);
 }
+if ($curentRoute == $route->map['adminCategoriesUpdateSuccess']){
+    $page = new controller\categoryController();
+    $page->display(true);
+}

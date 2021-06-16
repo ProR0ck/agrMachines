@@ -44,6 +44,7 @@ class route extends config\config
         "adminCategories"=>"/agrMachines/admin/categories",
         "adminCategoriesUpdate"=>"/agrMachines/admin/categories/update/",
         "adminCategoriesUpdateComplete"=>"/agrMachines/admin/categories/update/complete",
+        "adminCategoriesUpdateSuccess" => "/agrMachines/admin/categories/update/success",
     );
     public function getRoute(){
         return urldecode($_SERVER['REQUEST_URI']);

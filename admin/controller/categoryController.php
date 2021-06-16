@@ -8,7 +8,7 @@ use catalog\routes;
 
 class categoryController extends \admin\models\isUserModel
 {
-    public function show($title, $flag, $changeCategory = null){
+    public function show($title, $flag, $changeCategory = null, $success = null){
         $category = new categoryModel();
         $categories = $category->getCategories();
         $link = $this->map['host'];
@@ -19,10 +19,10 @@ class categoryController extends \admin\models\isUserModel
         include "admin/view/template/footer.php";
     }
 
-    public function display(){
+    public function display($success = null){
         if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
         else {
-            $this->show("Категории товаров",(__FUNCTION__));
+            $this->show("Категории товаров",(__FUNCTION__),null,$success);
         }
     }
 
@@ -41,7 +41,7 @@ class categoryController extends \admin\models\isUserModel
         else {
             $category = new categoryModel();
             $category->updateCategory($data);
-            header("Location: {$this->map['adminCategories']}");
+            header("Location: {$this->map['adminCategoriesUpdateSuccess']}");
         }
     }
 }
