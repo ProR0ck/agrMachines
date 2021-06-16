@@ -46,7 +46,7 @@ class orderController
             $productsInBasketTotalPriceArr = $product->getBasketList(1);
             $totalPrice = $product->getBasketTotalPrice($productsInBasketTotalPriceArr);
             $makeOrder = $basket->isBasket();
-            $title = "Заказ принят на обработку! Историю покупок можно посмотреть в личном кабинете!";
+            $title = "Заказ принят на обработку! <a href='{$route->map['history']}'>Историю покупок </a> можно посмотреть в личном кабинете!";
             $success = $title;
             include "catalog/view/template/header.php";
             include "catalog/view/template/menu.php";

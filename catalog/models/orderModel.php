@@ -33,4 +33,41 @@ class orderModel extends \catalog\config\config
         $query = "SELECT MAX(`id_order`) FROM `orders`";
         return $this->getPdo()->query($query)->fetch()[0];
     }
+    public function getHistory($id){
+        $query = "SELECT o.`id_order`, o.`time_date_of_order` AS 'date', o.`time_date_of_order` AS 'time', d.`delivery_method_name`, p.`payment_method_name`, o.`delivery_address`
+        FROM `orders` o, `delivery_methods` d, `payment_methods` p
+        WHERE o.`id_payment_method` = p.`id_payment_method`
+        AND o.`id_delivery_method` = d.`id_delivery_method`
+        AND o.`id_client` = '{$id}'
+        ORDER BY `o`.`id_order` DESC";
+        $data = $this->getPdo()->query($query)->fetchAll();
+        $i=0;
+        foreach ($data as $value){
+            $curentDate = date_create($value['date']);
+            $curentTime = date_create($value['time']);
+
+            $data[$i]['date'] = date_format($curentDate, 'd.m.Y');
+            $data[$i]['time'] = date_format($curentDate, 'H:i');
+            $i++;
+        }
+        return $data;
+    }
+    public function getBasketProducts($id){
+        $query = "SELECT g.`id_order`, g.`id_vehicle`, mr.`mark_name`, md.`model_name`, v.`VIN`, v.`price`
+        FROM `vehicles` v, `marks` mr, `models` md, `goods_in_basket_order` g
+        WHERE g.`id_vehicle` = v.`id_vehicle`
+        AND md.`id_model` = v.`id_model`
+        AND md.`id_mark` = mr.`id_mark`
+        AND v.`id_vehicle` = g.`id_vehicle`
+        AND g.`id_order` = '{$id}'";
+        return $this->getPdo()->query($query)->fetchAll();
+    }
+    public function getTotalPrice($id){
+        $totalPrice = 0;
+        $products  = $this->getBasketProducts($id);
+        foreach ($products as $product){
+            $totalPrice += $product['price'];
+        }
+        return number_format($totalPrice, 2, ',', ' ');
+    }
 }

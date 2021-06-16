@@ -4,19 +4,17 @@ spl_autoload_register(function($class) {
 });
 session_start();
 if (isset($_COOKIE['PHPSESSID'])) $_SESSION['name'] = $_COOKIE['PHPSESSID'];
-//print_r($_SESSION);
-//session_destroy();
+
 use catalog\controllers;
 use catalog\routes\route;
-use catalog\models;
+use admin\controller;
+use admin\models\isUserModel;
+//use catalog\models;
 
 
 
 $route = new route();
 $curentRoute = $route->getRoute();
-//echo $route->map['localhost'].$curentRoute;
-//echo "<br>";
-//echo $_SERVER['HTTP_REFERER'];
 $id = $route->id;
 
 if ($curentRoute == $route->map['home']){
@@ -85,4 +83,16 @@ if ($curentRoute == $route->map['logout']){
 if ($curentRoute == $route->map['userInfo']){
     $user = new controllers\userInfoController();
     $user->display();
+}
+if ($curentRoute == $route->map['history']){
+    $user = new controllers\userHistoryController();
+    $user->display();
+}
+if ($curentRoute == $route->map['account']){
+    $user = new controllers\accountController();
+    $user->dsplayInfo();
+}
+if ($curentRoute == $route->map['adminHome']){
+    $admin = new controller\homeController();
+    $admin->display();
 }

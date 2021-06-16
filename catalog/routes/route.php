@@ -35,6 +35,10 @@ class route extends config\config
         "authorization" => "/agrMachines/account/authorization",
         "logout" => "/agrMachines/account/logout",
         "userInfo" => "/agrMachines/account/info",
+        "history" => "/agrMachines/account/history",
+        "account" => "/agrMachines/account",
+        "adminHome"=>"/agrMachines/admin/home",
+
     );
     public function getRoute(){
         return urldecode($_SERVER['REQUEST_URI']);

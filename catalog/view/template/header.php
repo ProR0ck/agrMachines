@@ -40,8 +40,10 @@
                     </ul>
                     <?php } else {?>
                     <ul class="dropdown-menu dropdown-menu-right">
-                        <li><a href="<?=$route->map['logout']?>">Выход</a></li>
-                        <li><a href="<?=$route->map['userInfo']?>">Посмотреть информацию</a></li>
+                        <li><a href="<?=$route->map['logout']?>"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                                Выход</a></li>
+                        <li><a href="<?=$route->map['userInfo']?>">Личные данные</a></li>
+                        <li><a href="<?=$route->map['history']?>">История заказов</a></li>
                     </ul>
                     <?php }?>
                 </li>

@@ -1,7 +1,7 @@
 <div class="container">
     <ul class="breadcrumb">
         <li><a href="<?=$route->map['home']?>"><i class="fa fa-home"></i></a></li>
-        <li><a href="<?php if (isset($_SESSION['log'])) echo $route->map['userInfo']; else echo $route->map['login']?>">Личный кабинет</a></li>
+        <li><a href="<?php if (isset($_SESSION['log'])) echo $route->map['account']; else echo $route->map['login']?>">Личный кабинет</a></li>
         <?php if (isset($_SESSION['log'])) {?>
             <li><a href="<?=$route->map['userInfo']?>"><?=$_SESSION['surname']?> <?=$_SESSION['user_name']?> <?=$_SESSION['patronymic']?></a></li>
         <?php } else {?>

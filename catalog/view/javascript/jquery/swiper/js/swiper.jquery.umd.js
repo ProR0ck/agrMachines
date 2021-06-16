@@ -3510,7 +3510,7 @@
          *   - spinY is what you expect -- it's the classic axis of a mouse wheel.
          *
          *   - I dropped spinZ/pixelZ.  It is supported by the DOM 3 'wheel' event and
-         *     probably is by browsers in conjunction with fancy 3D controllers .. but
+         *     probably is by browsers in conjunction with fancy 3D controller .. but
          *     you know.
          *
          * Implementation info:
