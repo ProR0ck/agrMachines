@@ -39,6 +39,7 @@ class route extends config\config
         "account" => "/agrMachines/account",
         "adminHome"=>"/agrMachines/admin/home",
         "adminAuth"=>"/agrMachines/admin/auth",
+        "adminAuthFail"=>"/agrMachines/admin/auth/fail",
         "adminSignIn"=>"/agrMachines/admin/sign-in",
         "adminSignOut"=>"/agrMachines/admin/sign-out",
         "adminCategories"=>"/agrMachines/admin/categories",

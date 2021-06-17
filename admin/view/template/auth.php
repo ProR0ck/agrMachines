@@ -13,6 +13,11 @@
                             <div class="input-group"><span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input type="text" name="log" value="" placeholder="Логин" id="input-username" class="form-control">
                             </div>
+                            <?php if($success) {?>
+                                <div class="alert alert-danger" role="alert">
+                                    <i class="fa fa-refresh fa-spin"></i> Введен некорректный логин или пароль
+                                </div>
+                            <?php }?>
                         </div>
                         <div class="form-group">
                             <label for="input-password">Пароль</label>

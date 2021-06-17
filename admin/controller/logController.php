@@ -10,7 +10,7 @@ use catalog\routes;
 
 class logController extends isUserModel
 {
-    public function display(){
+    public function display($success = null){
         $route = new routes\route();
         $link = $route->map['host'];
         $title = "Авторизация";
@@ -28,7 +28,7 @@ class logController extends isUserModel
             header("Location: {$route->map['adminHome']}");
         }
         else {
-            header("Location: {$route->map['adminAuth']}");
+            header("Location: {$route->map['adminAuthFail']}");
         }
     }
     public function signOut(){

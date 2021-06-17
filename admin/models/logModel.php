@@ -26,10 +26,10 @@ class logModel extends \catalog\config\config
         s.`sex_name`,
         r.`role_name`
         FROM `users` u, `sex_list` s, `role_list` r
-        WHERE u.`log` = 'a'
+        WHERE u.`log` = '{$data['log']}'
         AND u.`id_sex` = s.`id_sex`
         AND u.`id_role` = r.`id_role`
-        AND u.`pass` = 'a'
+        AND u.`pass` = '{$data['pass']}'
         AND u.`id_role` = '1'";
         $userData = $this->getPdo()->query($query)->fetch();
         if ($userData) {

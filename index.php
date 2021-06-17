@@ -20,106 +20,114 @@ if ($curentRoute == $route->map['home']){
     $page = new controllers\homeController();
     $page->display();
 }
-if ($curentRoute == $route->map['category'].$id){
+elseif ($curentRoute == $route->map['category'].$id){
     $category = new controllers\categoryController();
     $category->display($id);
 }
-if ($curentRoute == $route->map['added']){
+elseif ($curentRoute == $route->map['added']){
     $page = new controllers\homeController();
     $page->display();
 }
-if ($curentRoute == $route->map['deleted']){
+elseif ($curentRoute == $route->map['deleted']){
     $page = new controllers\homeController();
     $page->display();
 }
-if ($curentRoute == $route->map['product'].$id){
+elseif ($curentRoute == $route->map['product'].$id){
     $page = new controllers\productController();
     $page->display($id);
 }
-if ($curentRoute == $route->map['about']){
+elseif ($curentRoute == $route->map['about']){
     $page->display();
 }
-if ($curentRoute == $route->map['addProductToBasket'].$id){
+elseif ($curentRoute == $route->map['addProductToBasket'].$id){
     $basket = new controllers\basketController();
     $basket->addProduct($id);
 }
-if ($curentRoute == $route->map['deleteProductFromBasket'].$id){
+elseif ($curentRoute == $route->map['deleteProductFromBasket'].$id){
     $basket = new controllers\basketController();
     $basket->deleteProduct($id);
 }
-if (isset($_GET['search']) && $curentRoute == $route->map['search'].$_GET['search']){
+elseif (isset($_GET['search']) && $curentRoute == $route->map['search'].$_GET['search']){
     $page = new controllers\searchController();
     $page->display($_GET['search']);
 }
-if ($curentRoute == $route->map['newOrder']){
+elseif ($curentRoute == $route->map['newOrder']){
     $order = new controllers\orderController();
     $order->display();
 }
-if ($curentRoute == $route->map['newOrderComplete']){
+elseif ($curentRoute == $route->map['newOrderComplete']){
     $order = new controllers\orderController();
     $order->display($_POST);
 }
-if ($curentRoute == $route->map['register']){
+elseif ($curentRoute == $route->map['register']){
     $page = new controllers\accountController();
     $page->display("register");
 }
-if ($curentRoute == $route->map['login']){
+elseif ($curentRoute == $route->map['login']){
     $page = new controllers\accountController();
     $page->display("login");
 }
-if ($curentRoute == $route->map['registerChek']){
+elseif ($curentRoute == $route->map['registerChek']){
     $user = new controllers\registerController();
     $user->register($_POST);
 }
-if ($curentRoute == $route->map['logChek']){
+elseif ($curentRoute == $route->map['logChek']){
     $user = new controllers\loginController();
     $user->login($_POST);
 }
-if ($curentRoute == $route->map['logout']){
+elseif ($curentRoute == $route->map['logout']){
     $user = new controllers\loginController();
     $user->logout();
 }
-if ($curentRoute == $route->map['userInfo']){
+elseif ($curentRoute == $route->map['userInfo']){
     $user = new controllers\userInfoController();
     $user->display();
 }
-if ($curentRoute == $route->map['history']){
+elseif ($curentRoute == $route->map['history']){
     $user = new controllers\userHistoryController();
     $user->display();
 }
-if ($curentRoute == $route->map['account']){
+elseif ($curentRoute == $route->map['account']){
     $user = new controllers\accountController();
     $user->dsplayInfo();
 }
-if ($curentRoute == $route->map['adminHome']){
+elseif ($curentRoute == $route->map['adminHome']){
     $admin = new controller\homeController();
     $admin->display();
 }
-if ($curentRoute == $route->map['adminAuth']){
+elseif ($curentRoute == $route->map['adminAuth']){
     $user = new controller\logController();
     $user->display();
 }
-if ($curentRoute == $route->map['adminSignIn']){
+elseif ($curentRoute == $route->map['adminAuthFail']){
+    $user = new controller\logController();
+    $user->display(true);
+}
+elseif ($curentRoute == $route->map['adminSignIn']){
     $user = new controller\logController();
     $user->signIn($_POST);
 }
-if ($curentRoute == $route->map['adminSignOut']){
+elseif ($curentRoute == $route->map['adminSignOut']){
     $user = new controller\logController();
     $user->signOut();
 }
-if ($curentRoute == $route->map['adminCategories']){
+elseif ($curentRoute == $route->map['adminCategories']){
     $page = new controller\categoryController();
     $page->display();
 }
-if ($curentRoute == $route->map['adminCategoriesUpdate'].$id){
+elseif ($curentRoute == $route->map['adminCategoriesUpdate'].$id){
     $page = new controller\categoryController();
     $page->showUpdate($id);
 }
-if ($curentRoute == $route->map['adminCategoriesUpdateComplete']){
+elseif ($curentRoute == $route->map['adminCategoriesUpdateComplete']){
     $page = new controller\categoryController();
     $page->makeUpdate($_POST);
 }
-if ($curentRoute == $route->map['adminCategoriesUpdateSuccess']){
+elseif ($curentRoute == $route->map['adminCategoriesUpdateSuccess']){
     $page = new controller\categoryController();
+    $page->display(true);
+}
+else {
+    $page = new controllers\homeController();
     $page->display(true);
 }
