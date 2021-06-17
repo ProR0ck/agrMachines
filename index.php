@@ -111,6 +111,7 @@ elseif ($curentRoute == $route->map['adminSignOut']){
     $user = new controller\logController();
     $user->signOut();
 }
+//категории в админке
 elseif ($curentRoute == $route->map['adminCategories']){
     $page = new controller\categoryController();
     $page->display();
@@ -127,12 +128,10 @@ elseif ($curentRoute == $route->map['adminCategoriesUpdateSuccess']){
     $page = new controller\categoryController();
     $page->display(true);
 }
-
 elseif ($curentRoute == $route->map['adminCategoriesInsert']){
     $page = new controller\categoryController();
     $page->showInsert();
 }
-
 elseif ($curentRoute == $route->map['adminCategoriesInsertComplete']){
     $page = new controller\categoryController();
     $page->makeInsert($_POST);
@@ -141,13 +140,18 @@ elseif ($curentRoute == $route->map['adminCategoriesInsertSuccess']){
     $page = new controller\categoryController();
     $page->display(true);
 }
-elseif (strpos($curentRoute,$route->map['adminCategoriesDeleteComplete']) == 0){
-    $page = new controller\categoryController();
-    $page->makeDelete($_GET);
-}
 elseif ($curentRoute == $route->map['adminCategoriesDeleteSuccess']){
     $page = new controller\categoryController();
     $page->display(true);
+}
+//продукты в админке
+elseif ($curentRoute == $route->map['adminProducts']){
+    $page = new controller\productController();
+    $page->display();
+}
+elseif (strpos($curentRoute,$route->map['adminCategoriesDeleteComplete']) == 0){
+    $page = new controller\categoryController();
+    $page->makeDelete($_GET);
 }
 else {
     $page = new controllers\homeController();

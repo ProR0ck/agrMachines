@@ -1,4 +1,4 @@
-<nav id="column-left" class="active">
+<nav id="column-left">
     <div id="profile">
         <div>
             <i class="fa fa-user" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
                     <a class="parent">Товары</a>
                     <ul>
                         <li>
-                            <a href="http://localhost:8888/opencart/admin/index.php?route=catalog/attribute&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Товары</a>
+                            <a href="<?=$this->map['adminProducts']?>">Товары</a>
                         </li>
                         <li>
                             <a href="http://localhost:8888/opencart/admin/index.php?route=catalog/attribute_group&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Марки</a>

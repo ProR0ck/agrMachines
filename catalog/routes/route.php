@@ -42,6 +42,7 @@ class route extends config\config
         "adminAuthFail"=>"/agrMachines/admin/auth/fail",
         "adminSignIn"=>"/agrMachines/admin/sign-in",
         "adminSignOut"=>"/agrMachines/admin/sign-out",
+        //категории
         "adminCategories"=>"/agrMachines/admin/categories",
         "adminCategoriesUpdate"=>"/agrMachines/admin/categories/update/",
         "adminCategoriesUpdateComplete"=>"/agrMachines/admin/categories/update/complete",
@@ -51,6 +52,17 @@ class route extends config\config
         "adminCategoriesInsertSuccess"=>"/agrMachines/admin/categories/new/success",
         "adminCategoriesDeleteComplete"=>"/agrMachines/admin/categories/delete/",
         "adminCategoriesDeleteSuccess"=>"/agrMachines/admin/categories/delete/success",
+        //товары
+        "adminProducts"=>"/agrMachines/admin/products",
+        "adminProductsUpdate"=>"/agrMachines/admin/products/update/",
+        "adminProductsUpdateComplete"=>"/agrMachines/admin/products/update/complete",
+        "adminProductsUpdateSuccess" => "/agrMachines/admin/products/update/success",
+        "adminProductsInsert"=>"/agrMachines/admin/products/new",
+        "adminProductsInsertComplete"=>"/agrMachines/admin/products/new/complete",
+        "adminProductsInsertSuccess"=>"/agrMachines/admin/products/new/success",
+        "adminProductsDeleteComplete"=>"/agrMachines/admin/products/delete/",
+        "adminProductsDeleteSuccess"=>"/agrMachines/admin/products/delete/success",
+
     );
     public function getRoute(){
         return urldecode($_SERVER['REQUEST_URI']);

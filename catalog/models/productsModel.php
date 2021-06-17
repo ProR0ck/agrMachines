@@ -8,18 +8,24 @@ class productsModel extends \catalog\config\config
 {
     function getProducts($category = null){
         if (!$category)
-            $query = "SELECT v.`id_vehicle`, c.`category_name`,m.`model_name`, v.`description`, v.`price`,v.`VIN`, p.`path` 
-            FROM `vehicles` v, `models` m, `vehicles_photo` p, `categories` c
+            $query = "SELECT v.`id_vehicle`, c.`category_name`,cn.`country_name`, mn.`manufacturer_name`,mr.`mark_name`,m.`model_name`, v.`description`, v.`price`,v.`VIN`, p.`path` 
+            FROM `vehicles` v, `models` m, `vehicles_photo` p, `categories` c, `marks` mr, `countries` cn,`manufacturer` mn
             WHERE v.`id_model` = m.`id_model`
             AND v.`id_vehicle` = p.`id_vehicle` 
             AND v.`id_category` = c.`id_category`
+            AND mr.`id_mark` = m.`id_mark`
+            AND v.`id_country` = cn.`id_country`
+            AND mn.`id_manufacturer` = v.`id_manufacturer`
             AND p.`is_main` = 1";
         else
-            $query = "SELECT v.`id_vehicle`, c.`category_name`,m.`model_name`, v.`description`, v.`price`,v.`VIN`, p.`path` 
-            FROM `vehicles` v, `models` m, `vehicles_photo` p, `categories` c
+            $query = "SELECT v.`id_vehicle`, c.`category_name`,cn.`country_name`, mn.`manufacturer_name`,mr.`mark_name`,m.`model_name`, v.`description`, v.`price`,v.`VIN`, p.`path` 
+            FROM `vehicles` v, `models` m, `vehicles_photo` p, `categories` c, `marks` mr, `countries` cn,`manufacturer` mn
             WHERE v.`id_model` = m.`id_model`
             AND v.`id_vehicle` = p.`id_vehicle` 
             AND v.`id_category` = c.`id_category`
+            AND mr.`id_mark` = m.`id_mark`
+            AND v.`id_country` = cn.`id_country`
+            AND mn.`id_manufacturer` = v.`id_manufacturer`
             AND p.`is_main` = 1
             AND v.`id_category` = '{$category}'";
         $productArray = $this->getPdo()->query($query)->fetchAll();
