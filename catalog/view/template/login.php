@@ -27,9 +27,8 @@
                                 <label class="control-label" for="input-email">E-Mail:</label>
                                 <input type="text" name="log" value="" placeholder="E-Mail:" id="input-email" class="form-control">
                                 <?php if (isset($result) && $result == false) {?>
-                                <div class="alert alert-danger" role="alert">
-                                    <i class="fa fa-refresh fa-spin"></i> Некорректный логин или пароль
-                                </div>
+                                    <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> Неправильный логин и/или пароль!              <button type="button" class="close" data-dismiss="alert">×</button>
+                                    </div>
                                 <?php }?>
                             </div>
                             <div class="form-group">

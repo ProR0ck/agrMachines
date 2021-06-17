@@ -127,6 +127,28 @@ elseif ($curentRoute == $route->map['adminCategoriesUpdateSuccess']){
     $page = new controller\categoryController();
     $page->display(true);
 }
+
+elseif ($curentRoute == $route->map['adminCategoriesInsert']){
+    $page = new controller\categoryController();
+    $page->showInsert();
+}
+
+elseif ($curentRoute == $route->map['adminCategoriesInsertComplete']){
+    $page = new controller\categoryController();
+    $page->makeInsert($_POST);
+}
+elseif ($curentRoute == $route->map['adminCategoriesInsertSuccess']){
+    $page = new controller\categoryController();
+    $page->display(true);
+}
+elseif (strpos($curentRoute,$route->map['adminCategoriesDeleteComplete']) == 0){
+    $page = new controller\categoryController();
+    $page->makeDelete($_GET);
+}
+elseif ($curentRoute == $route->map['adminCategoriesDeleteSuccess']){
+    $page = new controller\categoryController();
+    $page->display(true);
+}
 else {
     $page = new controllers\homeController();
     $page->display(true);

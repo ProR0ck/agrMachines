@@ -14,8 +14,7 @@
                                 <input type="text" name="log" value="" placeholder="Логин" id="input-username" class="form-control">
                             </div>
                             <?php if($success) {?>
-                                <div class="alert alert-danger" role="alert">
-                                    <i class="fa fa-refresh fa-spin"></i> Введен некорректный логин или пароль
+                                <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> Неправильный логин и/или пароль!              <button type="button" class="close" data-dismiss="alert">×</button>
                                 </div>
                             <?php }?>
                         </div>

@@ -25,8 +25,7 @@ class categoryController extends \admin\models\isUserModel
             $this->show("Категории товаров",(__FUNCTION__),null,$success);
         }
     }
-
-    function showUpdate($id){
+    public function showUpdate($id){
         if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
         else {
             $category = new categoryModel();
@@ -35,13 +34,35 @@ class categoryController extends \admin\models\isUserModel
             $this->show("Изменение категории",(__FUNCTION__),$changeCategory);
         }
     }
-
     public function makeUpdate($data){
         if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
         else {
             $category = new categoryModel();
             $category->updateCategory($data);
             header("Location: {$this->map['adminCategoriesUpdateSuccess']}");
+        }
+    }
+    public function showInsert(){
+        if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
+        else {
+
+            $this->show("Добавление новой категории",(__FUNCTION__));
+        }
+    }
+    public function makeInsert($value){
+        if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
+        else {
+            $category = new categoryModel();
+            $category->insertCategory($value);
+            header("Location: {$this->map['adminCategoriesInsertSuccess']}");
+        }
+    }
+    public function makeDelete($value){
+        if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
+        else {
+            $category = new categoryModel();
+            $category->deleteCategory($value);
+            header("Location: {$this->map['adminCategoriesInsertSuccess']}");
         }
     }
 }

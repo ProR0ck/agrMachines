@@ -2,12 +2,12 @@
     <div class="page-header">
         <div class="container-fluid">
             <?php if ($flag == "display") {?>
-            <div class="pull-right"><a href="" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Добавить"><i class="fa fa-plus"></i></a>
+            <div class="pull-right"><a href="<?=$this->map['adminCategoriesInsert']?>" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Добавить"><i class="fa fa-plus"></i></a>
                 <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="confirm('Вы уверены?') ? $('#form-category').submit() : false;" data-original-title="Удалить"><i class="fa fa-trash-o"></i></button>
             </div>
             <?php }?>
 
-            <?php if ($flag == "showUpdate") {?>
+            <?php if ($flag == "showUpdate" || $flag =="showInsert") {?>
             <div class="pull-right">
                 <button type="submit" form="form-category" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Сохранить"><i class="fa fa-save"></i></button>
                 <a href="<?=$this->map['adminCategories']?>" data-toggle="tooltip" title="" class="btn btn-default" data-original-title="Отменить"><i class="fa fa-reply"></i></a>
@@ -29,10 +29,10 @@
             <div class="panel-body">
                 <?php if($success) {?>
                     <div class="alert alert-success" role="alert">
-                        <i class="fa fa-refresh fa-spin"></i> Данные успешно записаны!
+                        <i class="fa fa-refresh fa-spin"></i> Данные в базе успешно изменены!
                     </div>
                 <?php }?>
-                <form action="<?=$this->map['adminHome']?>" method="get" enctype="multipart/form-data" id="form-category">
+                <form action="<?=$this->map['adminCategoriesDeleteComplete']?>" method="get" enctype="multipart/form-data" id="form-category">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover">
                             <thead>
@@ -45,7 +45,7 @@
                             <tbody>
                             <?php foreach ($categories as $category) {?>
                             <tr>
-                                <td class="text-center"><input type="checkbox" name="selected" value="<?=$category['id_category']?>"></td>
+                                <td class="text-center"><input type="checkbox" name="selected<?=$category['id_category']?>" value="<?=$category['id_category']?>"></td>
                                 <td class="left"><?=$category['category_name']?></td>
                                 <td class="text-right">
                                     <a href="<?=$this->map['adminCategoriesUpdate'].$category['id_category']?>" data-toggle="tooltip" title="Редактировать" class="btn btn-primary" data-original-title="Редактировать">
@@ -81,5 +81,24 @@
             </div>
         </div>
     </div>
+    <?php }?>
+    <?php if ($flag == "showInsert") {?>
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-plus"></i> <?=$title?></h3>
+                </div>
+                <div class="panel-body">
+                    <form action="<?=$this->map['adminCategoriesInsertComplete']?>" method="post" enctype="multipart/form-data" id="form-category" class="form-horizontal">
+                        <div class="form-group required">
+                            <label class="col-sm-2 control-label" for="input-name1">Название категории:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="category_name" placeholder="Название категории:" id="input-name1" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     <?php }?>
 </div>
