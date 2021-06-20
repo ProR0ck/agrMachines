@@ -32,4 +32,8 @@ class userHistoryController
         include("catalog/view/template/history.php");
         include ("catalog/view/template/footer.php");
     }
+    public function getPaymentInfo($id_order)
+    {
+        echo $id_order;
+    }
 }

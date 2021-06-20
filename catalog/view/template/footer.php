@@ -1,40 +1,45 @@
 <footer>
     <div class="container">
         <div class="row">
-            {% if informations %}
             <div class="col-sm-3">
-                <h5>{{ text_information }}</h5>
+                <h5>Мессенджеры</h5>
                 <ul class="list-unstyled">
-                    {% for information in informations %}
-                    <li><a href="{{ information.href }}">{{ information.title }}</a></li>
-                    {% endfor %}
+                    <li><a href="#"><i class="fa fa-instagram"></i> instagram</a></li>
+                    <li><a href="#"><i class="fa fa-vk"></i> Вконтакте</a></li>
+                    <li><a href="#"><i class="fa fa-telegram"></i> telegram</a></li>
+                    <li><a href="#"><i class="fa fa-whatsapp"></i> whatsapp</a></li>
                 </ul>
             </div>
-            {% endif %}
+
             <div class="col-sm-3">
-                <h5>{{ text_service }}</h5>
+                <h5>Поддержка</h5>
                 <ul class="list-unstyled">
-                    <li><a href="{{ contact }}">{{ text_contact }}</a></li>
-                    <li><a href="{{ return }}">{{ text_return }}</a></li>
-                    <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-3">
-                <h5>{{ text_extra }}</h5>
-                <ul class="list-unstyled">
-                    <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
-                    <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
-                    <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
-                    <li><a href="{{ special }}">{{ text_special }}</a></li>
+                    <li><a href="#"><i class="fa fa-phone"></i> +7 (499)-777-77-77</a></li>
+                    <li><a href="#"><i class="fa fa-envelope"></i> agromachines@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> Москва, Бакунинская 81</a></li>
+                    <li><a href="#"><i class="fa fa-calendar"></i> пн-пт 09:00-18:00</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>{{ text_account }}</h5>
+                <h5>Дополнительно</h5>
                 <ul class="list-unstyled">
-                    <li><a href="{{ account }}">{{ text_account }}</a></li>
-                    <li><a href="{{ order }}">{{ text_order }}</a></li>
-                    <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
-                    <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Производители</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> Салоны</a></li>
+                    <li><a href="#"><i class="fa fa-commenting-o" aria-hidden="true"></i> Отзывы клиентов</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Вход для пользователей</h5>
+                <ul class="list-unstyled">
+                    <li><a href="<?=$route->map['adminAuth']?>"><i class="fa fa-lock" aria-hidden="true"></i> Администратор</a></li>
+                    <?php if (!isset($_SESSION['log'])){?>
+                    <li><a href="<?=$route->map['login']?>"><i class="fa fa-user" aria-hidden="true"></i> Клиент</a></li>
+                    <?php } else {?>
+                        <li><a href="<?=$route->map['userInfo']?>"><i class="fa fa-user" aria-hidden="true"></i> <?=$_SESSION['user_name']?> <?=$_SESSION['surname']?></a></li>
+                        <li><a href="<?=$route->map['history']?>"><i class="fa fa-history" aria-hidden="true"></i> История заказов</a></li>
+                        <li><a href="<?=$route->map['logout']?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход</a></li>
+                    <?php }?>
                 </ul>
             </div>
         </div>

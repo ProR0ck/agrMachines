@@ -41,7 +41,8 @@
                         <button type="button"  data-toggle="tooltip"
                                 onclick="window.location.href = '<?=$link?>/add-to-basket/<?=$product['id_vehicle']?>';"
                                 data-original-title="Добавить в корзину"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">В корзину</span></button>
-                        <button type="button" data-toggle="tooltip" onclick="window.location.href = '<?=$link?>/product/<?=$product['id_vehicle']?>';" data-original-title="посмотреть информацию о товаре"><i class="fa fa-info"></i></button>
+                        <button type="button" data-toggle="tooltip" onclick="window.location.href = '<?=$route->map['product']?><?=$product['id_vehicle']?>';" data-original-title="посмотреть информацию о товаре"><i class="fa fa-info"></i></button>
+                        <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="В сравнение"><i class="fa fa-exchange"></i></button>
                     </div>
                 </div>
             </div>

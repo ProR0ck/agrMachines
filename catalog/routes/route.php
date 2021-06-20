@@ -36,6 +36,7 @@ class route extends config\config
         "logout" => "/agrMachines/account/logout",
         "userInfo" => "/agrMachines/account/info",
         "history" => "/agrMachines/account/history",
+        "PaymentInfo" => "/agrMachines/account/history/payment-info/",
         "account" => "/agrMachines/account",
         "adminHome"=>"/agrMachines/admin/home",
         "adminAuth"=>"/agrMachines/admin/auth",

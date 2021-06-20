@@ -48,7 +48,7 @@ class productController extends \admin\models\isUserModel
         if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
         else {
 
-            $this->show("Добавление новой категории",(__FUNCTION__));
+            $this->show("Добавление нового товара",(__FUNCTION__));
         }
     }
     public function makeInsert($value){

@@ -19,6 +19,7 @@
                 <td class="text-left">Адрес доставки</td>
                 <td class="text-left">Корзина заказа</td>
                 <td class="text-left">Итоговая цена (руб.)</td>
+                <td class="text-center">Чек</td>
             </tr>
             </thead>
             <tbody>
@@ -51,6 +52,9 @@
                 </td>
                 <td>
                     <?=$order->getTotalPrice($value['id_order'])?>
+                </td>
+                <td>
+                    <a href="<?=$link?>/catalog/view/paymentDocs/ЧЕК-<?=$value['id_order']?>.docx">скачать <i class="fa fa-download" aria-hidden="true"></i></a>
                 </td>
             </tr>
             <?php }?>

@@ -53,5 +53,6 @@ class orderController
             include "catalog/view/template/order.php";
         }
         include ("catalog/view/template/footer.php");
+        $order->makePaymentDoc($_SESSION['id_user'],$order->getNewOrderId());
     }
 }

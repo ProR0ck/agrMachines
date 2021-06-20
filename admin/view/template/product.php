@@ -68,7 +68,7 @@
                                             </a>
                                         </td>
                                         <td class="text-center">
-                                            <a href="<?=$this->map['adminCategoriesUpdate'].$category['id_category']?>" data-toggle="tooltip" title="Редактировать" class="btn btn-primary" data-original-title="Редактировать">
+                                            <a href="<?=$this->map['adminProductsUpdate'].$product['id_vehicle']?>" data-toggle="tooltip" title="Редактировать" class="btn btn-primary" data-original-title="Редактировать">
                                                 <i class="fa fa-pencil"></i>
                                             </a>
                                         </td>
@@ -86,15 +86,26 @@
         <div class="container-fluid">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-pencil"></i> Редактирование категории</h3>
+                    <h3 class="panel-title"><i class="fa fa-pencil"></i><?=$title?></h3>
                 </div>
                 <div class="panel-body">
-                    <form action="<?=$this->map['adminCategoriesUpdateComplete']?>" method="post" enctype="multipart/form-data" id="form-category" class="form-horizontal">
+                    <form action="<?=$this->map['adminProductsUpdateComplete']?>" method="post" enctype="multipart/form-data" id="form-category" class="form-horizontal">
+
                         <div class="form-group required">
-                            <label class="col-sm-2 control-label" for="input-name1">Название категории:</label>
+                            <label class="col-sm-2 control-label" for="input-name1">Категории:</label>
                             <div class="col-sm-10">
                                 <input type="text" name="category_name" value="<?=$changeCategory['category_name']?>" placeholder="Название категории:" id="input-name1" class="form-control">
                                 <input type="hidden" name="id_category" value="<?=$changeCategory['id_category']?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="input-parent">Категория:</label>
+                            <div class="col-sm-10">
+                                <select name="parent_id" class="form-control">
+                                    <option value="0" selected="selected"> --- Не выбрано --- </option>
+                                    <option value="34">MP3 Плееры</option>
+                                </select>
                             </div>
                         </div>
                     </form>

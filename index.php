@@ -2,6 +2,22 @@
 spl_autoload_register(function($class) {
     require_once strtolower(str_replace('\\', '/', $class) . '.php');
 });
+include "vendor/autoload.php";
+
+//define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+/*function autoloader($className)
+{
+    try {
+        $path = str_replace('\\', DIRECTORY_SEPARATOR, $className);
+        $file = ROOT_PATH . $path . '.php';
+        if (!is_file($file))
+            throw new \Exception ($file.' file not found');
+        include ($file);
+    } catch (\Exception $ex) {
+        echo $ex->getMessage();
+        exit;
+    }
+}*/
 session_start();
 if (isset($_COOKIE['PHPSESSID'])) $_SESSION['name'] = $_COOKIE['PHPSESSID'];
 
@@ -87,6 +103,7 @@ elseif ($curentRoute == $route->map['history']){
     $user = new controllers\userHistoryController();
     $user->display();
 }
+
 elseif ($curentRoute == $route->map['account']){
     $user = new controllers\accountController();
     $user->dsplayInfo();
@@ -149,10 +166,20 @@ elseif ($curentRoute == $route->map['adminProducts']){
     $page = new controller\productController();
     $page->display();
 }
+elseif ($curentRoute == $route->map['adminProductsUpdate'].$id){
+    $page = new controller\productController();
+    $page->showUpdate($id);
+}
+elseif ($curentRoute == $route->map['adminProductsInsert']){
+    $page = new controller\categoryController();
+    $page->showInsert();
+}
+
+/*
 elseif (strpos($curentRoute,$route->map['adminCategoriesDeleteComplete']) == 0){
     $page = new controller\categoryController();
     $page->makeDelete($_GET);
-}
+}*/
 else {
     $page = new controllers\homeController();
     $page->display(true);
