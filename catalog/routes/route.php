@@ -63,6 +63,13 @@ class route extends config\config
         "adminProductsInsertSuccess"=>"/agrMachines/admin/products/new/success",
         "adminProductsDeleteComplete"=>"/agrMachines/admin/products/delete/",
         "adminProductsDeleteSuccess"=>"/agrMachines/admin/products/delete/success",
+        //Заказы
+        "adminOrders" => "/agrMachines/admin/orders",
+        "adminOrdersUpdate"=>"/agrMachines/admin/orders/update/",
+        "adminOrdersUpdateComplete"=>"/agrMachines/admin/orders/update/complete",
+        "adminOrdersUpdateSuccess" => "/agrMachines/admin/orders/update/success",
+        "adminReport" => "/agrMachines/admin/report",
+        "adminReportMake" => "/agrMachines/admin/report/make",
 
     );
     public function getRoute(){

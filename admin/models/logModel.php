@@ -6,7 +6,8 @@ namespace admin\models;
 
 class logModel extends \catalog\config\config
 {
-    public function chekUser($data){
+    public function chekUser($data)
+    {
         $query = "SELECT 
         u.`id_user`, 
         u.`surname`, 
@@ -52,8 +53,7 @@ class logModel extends \catalog\config\config
             $_SESSION['pass'] = $userData['pass'];
             $_SESSION['photo_path'] = $userData['photo_path'];
             return true;
-        }
-        else {
+        } else {
             return false;
         }
 

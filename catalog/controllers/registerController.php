@@ -30,22 +30,19 @@ class registerController
         $nameError = $chek->fullName($data['name']);
         $surnameError = $chek->fullName($data['surname']);
         $patronymicError = $chek->fullName($data['patronymic']);
-        $passwordError = $chek->coincidence($data['password'],$data['confirm']);
+        $passwordError = $chek->coincidence($data['password'], $data['confirm']);
         include("catalog/view/template/header.php");
         include "catalog/view/template/menu.php";
-        if (($nameError == null) && ($surnameError == null) && ($patronymicError == null) && ($passwordError == null)){
-            if ($data['flag'] == 'insert'){
+        if (($nameError == null) && ($surnameError == null) && ($patronymicError == null) && ($passwordError == null)) {
+            if ($data['flag'] == 'insert') {
                 $result = $chek->insert($data);
                 include "catalog/view/template/login.php";
-            }
-
-            elseif ($data['flag'] == 'update'){
+            } elseif ($data['flag'] == 'update') {
                 $updateResult = $chek->update($data);
-                $user->login($data['e_mail'],$data['password']);
+                $user->login($data['e_mail'], $data['password']);
                 include "catalog/view/template/register.php";
             }
-        }
-        else {
+        } else {
             include "catalog/view/template/register.php";
         }
         include("catalog/view/template/footer.php");

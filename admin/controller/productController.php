@@ -10,7 +10,7 @@ use catalog\models\productsModel;
 
 class productController extends \admin\models\isUserModel
 {
-    public function show($title, $flag, $changeCategory = null, $success = null){
+    public function show($title, $flag, $categories = null, $markAndModels = null, $manufacturers = null, $countries = null, $colors = null, $salons = null, $stockStatuses = null, $success = null){
         $product = new productsModel();
         $products = $product->getProducts();
         $link = $this->map['host'];
@@ -24,7 +24,7 @@ class productController extends \admin\models\isUserModel
     public function display($success = null){
         if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
         else {
-            $this->show("Товары",(__FUNCTION__),null,$success);
+            $this->show("Товары",(__FUNCTION__),null, null,null,null,null,null,null, $success);
         }
     }
     public function showUpdate($id){
@@ -47,16 +47,23 @@ class productController extends \admin\models\isUserModel
     public function showInsert(){
         if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
         else {
-
-            $this->show("Добавление нового товара",(__FUNCTION__));
+            $product = new productModel();
+            $categories = $product->getCategory();
+            $markAndModels = $product->getMarkAndModels();
+            $manufacturers = $product->getManufacturers();
+            $countries = $product->getCountries();
+            $colors = $product->getColors();
+            $salons = $product->getSalons();
+            $stockStatuses = $product->getStockStatuses();
+            $this->show("Добавление нового товара",(__FUNCTION__),$categories,$markAndModels,$manufacturers, $countries, $colors, $salons, $stockStatuses);
         }
     }
-    public function makeInsert($value){
+    public function makeInsert($data, $photos){
         if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
         else {
-            $category = new categoryModel();
-            $category->insertCategory($value);
-            header("Location: {$this->map['adminCategoriesInsertSuccess']}");
+            $product = new productModel();
+            $product->insertProduct($data,$photos);
+            header("Location: {$this->map['adminProductsInsertSuccess']}");
         }
     }
     public function makeDelete($value){

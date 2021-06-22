@@ -32,19 +32,25 @@
             <div class="col-sm-3">
                 <h5>Вход для пользователей</h5>
                 <ul class="list-unstyled">
-                    <li><a href="<?=$route->map['adminAuth']?>"><i class="fa fa-lock" aria-hidden="true"></i> Администратор</a></li>
-                    <?php if (!isset($_SESSION['log'])){?>
-                    <li><a href="<?=$route->map['login']?>"><i class="fa fa-user" aria-hidden="true"></i> Клиент</a></li>
-                    <?php } else {?>
-                        <li><a href="<?=$route->map['userInfo']?>"><i class="fa fa-user" aria-hidden="true"></i> <?=$_SESSION['user_name']?> <?=$_SESSION['surname']?></a></li>
-                        <li><a href="<?=$route->map['history']?>"><i class="fa fa-history" aria-hidden="true"></i> История заказов</a></li>
-                        <li><a href="<?=$route->map['logout']?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Выход</a></li>
-                    <?php }?>
+                    <li><a href="<?= $route->map['adminAuth'] ?>"><i class="fa fa-lock" aria-hidden="true"></i>
+                            Администратор</a></li>
+                    <?php if (!isset($_SESSION['log'])) { ?>
+                        <li><a href="<?= $route->map['login'] ?>"><i class="fa fa-user" aria-hidden="true"></i>
+                                Клиент</a></li>
+                    <?php } else { ?>
+                        <li><a href="<?= $route->map['userInfo'] ?>"><i class="fa fa-user"
+                                                                        aria-hidden="true"></i> <?= $_SESSION['user_name'] ?> <?= $_SESSION['surname'] ?>
+                            </a></li>
+                        <li><a href="<?= $route->map['history'] ?>"><i class="fa fa-history" aria-hidden="true"></i>
+                                История заказов</a></li>
+                        <li><a href="<?= $route->map['logout'] ?>"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                                Выход</a></li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
         <hr>
-        <p>Developer - ProR0ck</p>
+        <p>Developer - Antonova</p>
     </div>
 </footer>
 </body>

@@ -9,7 +9,8 @@ use catalog\routes;
 
 class homeController
 {
-    public function display($notFound = null){
+    public function display($notFound = null)
+    {
 
         $category = new models\categoriesModel();
         $product = new models\productsModel();
@@ -25,12 +26,12 @@ class homeController
         $makeOrder = $basket->isBasket();
         $title = "agrMachines";
 
-        include ("catalog/view/template/header.php");
+        include("catalog/view/template/header.php");
         include "catalog/view/template/menu.php";
         if ($notFound)
-            include ("catalog/view/template/notFound.php");
+            include("catalog/view/template/notFound.php");
         else
-            include ("catalog/view/template/products.php");
-        include ("catalog/view/template/footer.php");
+            include("catalog/view/template/products.php");
+        include("catalog/view/template/footer.php");
     }
 }
