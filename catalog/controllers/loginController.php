@@ -27,7 +27,7 @@ class loginController
         $result = $chek->login($data['log'], $data['pass']);
         include("catalog/view/template/header.php");
         include "catalog/view/template/menu.php";
-        if ($result) include "catalog/view/template/register.php";
+        if ($result) include "catalog/view/template/account.php";
         else include "catalog/view/template/login.php";
         include("catalog/view/template/footer.php");
     }

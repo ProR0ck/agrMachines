@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-sm-3">
             <ul>
-                <li><a href="<?= $route->map['userInfo'] ?>">Личные данные</a></li>
+                <li><a href="<?= $route->map['userInfo'] ?>">Персональные данные</a></li>
                 <li><a href="<?= $route->map['history'] ?>">История заказов</a></li>
             </ul>
         </div>

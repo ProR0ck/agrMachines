@@ -42,27 +42,4 @@ class orderController extends \admin\models\isUserModel
             header("Location: {$this->map['adminOrdersUpdateSuccess']}");
         }
     }
-    public function showInsert(){
-        if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
-        else {
-
-            $this->show("Добавление новой категории",(__FUNCTION__));
-        }
-    }
-    public function makeInsert($value){
-        if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
-        else {
-            $category = new categoryModel();
-            $category->insertCategory($value);
-            header("Location: {$this->map['adminCategoriesInsertSuccess']}");
-        }
-    }
-    public function makeDelete($value){
-        if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
-        else {
-            $category = new categoryModel();
-            $category->deleteCategory($value);
-            header("Location: {$this->map['adminCategoriesInsertSuccess']}");
-        }
-    }
 }

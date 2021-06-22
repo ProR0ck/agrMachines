@@ -10,11 +10,9 @@ use catalog\routes;
 
 class reportController extends \admin\models\isUserModel
 {
-    public function show($title, $flag, $reportData = null, $PostData=null, $success = null){
+    public function show($title, $flag, $reportData = null, $PostData=null, $ordersQuantity=null, $success = null){
         $orders = new orderModel();
         if (isset($reportData)){
-            $info = new dashboardModel();
-            $ordersQuantity = $info->getSalesQuantity();
             $totalPriceReport = $orders->getReportTotalPrice($reportData);
             $reportLink = $orders->makePaymentDoc($reportData, $totalPriceReport, $ordersQuantity, $PostData);
         }
@@ -36,7 +34,8 @@ class reportController extends \admin\models\isUserModel
         else {
             $order = new orderModel();
             $reportData = $order->getReport($data['start'],$data['end']);
-            $this->show("Отчет по продажам ",(__FUNCTION__), $reportData, $data,true);
+            $ordersQuantity = $order->getSalesQuantity($data['start'],$data['end']);
+            $this->show("Отчет по продажам ",(__FUNCTION__), $reportData, $data,$ordersQuantity,true);
         }
     }
 }

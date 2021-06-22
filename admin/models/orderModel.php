@@ -76,17 +76,6 @@ class orderModel extends \catalog\config\config
             return false;
     }
 
-    public function deleteCategory($value){
-     foreach ($value as $id){
-         $query = "DELETE FROM `categories` WHERE `id_category` = '{$id}'";
-         if ($this->getPdo()->query($query))
-             $result = true;
-         else
-             $result = false;
-     }
-     return $result;
-    }
-
     public function getReport($start, $end){
         $query = "SELECT o.`id_order`, o.`time_date_of_order` AS 'date', o.`time_date_of_order` AS 'time', d.`delivery_method_name`, p.`payment_method_name`, o.`delivery_address`, o.`id_client`, cl.`surname`, cl.`name`, cl.`patronymic`, cl.`e_mail`, cl.`phone_number`, o.`id_status`, os.`status_name`, SUM(v.`price`) as 'SUM'
             FROM `orders` o, `delivery_methods` d, `payment_methods` p, `users` cl, `order_statuses` os, `goods_in_basket_order` gb, `vehicles` v
@@ -115,6 +104,15 @@ class orderModel extends \catalog\config\config
             $i++;
         }
         return $data;
+    }
+
+    public function getSalesQuantity($start, $end){
+        $query = "SELECT COUNT(o.`id_order`)
+        FROM `orders` o
+        WHERE o.`id_status` = '5'
+        AND o.`time_date_of_order` >= '{$start}'
+        AND o.`time_date_of_order` <= '{$end}'";
+        return $this->getPdo()->query($query)->fetch()[0];
     }
 
     public function getReportTotalPrice($data){

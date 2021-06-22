@@ -57,8 +57,7 @@
                         <?= $order->getTotalPrice($value['id_order']) ?>
                     </td>
                     <td>
-                        <a href="<?= $link ?>/catalog/view/paymentDocs/ЧЕК-<?= $value['id_order'] ?>.docx">скачать <i
-                                    class="fa fa-download" aria-hidden="true"></i></a>
+                        <a href="<?= $link ?>/catalog/view/paymentDocs/ЧЕК-<?= $value['id_order'] ?>.docx">скачать</a>
                     </td>
                 </tr>
             <?php } ?>
