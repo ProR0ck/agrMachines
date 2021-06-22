@@ -19,19 +19,26 @@
                     <a href="<?= $this->map['adminCategories'] ?>">Категории</a>
                 </li>
                 <li>
+                    <a href="<?= $this->map['adminProducts'] ?>">Товары</a>
+                </li>
+                <!--
+                <li>
                     <a class="parent">Товары</a>
                     <ul>
                         <li>
                             <a href="<?= $this->map['adminProducts'] ?>">Товары</a>
                         </li>
+
                         <li>
                             <a href="http://localhost:8888/opencart/admin/index.php?route=catalog/attribute_group&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Марки</a>
                         </li>
                         <li>
                             <a href="http://localhost:8888/opencart/admin/index.php?route=catalog/attribute_group&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Модели</a>
                         </li>
+
                     </ul>
-                </li>
+                </li>--!>
+                <!--
                 <li>
                     <a href="http://localhost:8888/opencart/admin/index.php?route=catalog/manufacturer&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Атрибуты</a>
                 </li>
@@ -41,6 +48,7 @@
                 <li>
                     <a href="http://localhost:8888/opencart/admin/index.php?route=catalog/manufacturer&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Салоны</a>
                 </li>
+                --!>
             </ul>
         </li>
         <li id="menu-sale">
@@ -51,6 +59,7 @@
                 </li>
             </ul>
         </li>
+        <!--
         <li id="menu-customer">
             <a class="parent"><i class="fa fa-user fw"></i> <span>Полльзователи</span></a>
             <ul class="collapse">
@@ -61,7 +70,7 @@
                     <a href="http://localhost:8888/opencart/admin/index.php?route=customer/customer&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Администраторы</a>
                 </li>
             </ul>
-        </li>
+        </li>--!>
         <li id="menu-report">
             <a class="parent"><i class="fa fa-bar-chart-o fw"></i> <span>Отчеты</span></a>
             <ul class="collapse">
@@ -77,12 +86,12 @@
                     <a href="<?=$this->map['adminColors']?>">Цвета</a>
                 </li>
                 <li>
-                    <a href="http://localhost:8888/opencart/admin/index.php?route=setting/store&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Страны</a>
+                    <a href="<?=$this->map['adminCountries']?>">Страны</a>
                 </li>
                 <li>
-                    <a href="http://localhost:8888/opencart/admin/index.php?route=setting/store&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Единицы
-                        измерения</a>
+                    <a href="<?=$this->map['adminUnits']?>">Единицы измерения</a>
                 </li>
+                <!--
                 <li>
                     <a href="http://localhost:8888/opencart/admin/index.php?route=setting/store&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Способы
                         доставки</a>
@@ -107,6 +116,7 @@
                     <a href="http://localhost:8888/opencart/admin/index.php?route=setting/store&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Список
                         ролей</a>
                 </li>
+                --!>
             </ul>
         </li>
     </ul>

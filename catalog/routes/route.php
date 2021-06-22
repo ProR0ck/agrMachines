@@ -80,6 +80,26 @@ class route extends config\config
         "adminColorsInsertSuccess"=>"/agrMachines/admin/colors/new/success",
         "adminColorsDeleteComplete"=>"/agrMachines/admin/colors/delete/",
         "adminColorsDeleteSuccess"=>"/agrMachines/admin/colors/delete/success",
+        //Countries
+        "adminCountries"=>"/agrMachines/admin/countries",
+        "adminCountriesUpdate"=>"/agrMachines/admin/countries/update/",
+        "adminCountriesUpdateComplete"=>"/agrMachines/admin/countries/update/complete",
+        "adminCountriesUpdateSuccess" => "/agrMachines/admin/countries/update/success",
+        "adminCountriesInsert"=>"/agrMachines/admin/countries/new",
+        "adminCountriesInsertComplete"=>"/agrMachines/admin/countries/new/complete",
+        "adminCountriesInsertSuccess"=>"/agrMachines/admin/countries/new/success",
+        "adminCountriesDeleteComplete"=>"/agrMachines/admin/countries/delete/",
+        "adminCountriesDeleteSuccess"=>"/agrMachines/admin/countries/delete/success",
+        //единицы измерения
+        "adminUnits"=>"/agrMachines/admin/units",
+        "adminUnitsUpdate"=>"/agrMachines/admin/units/update/",
+        "adminUnitsUpdateComplete"=>"/agrMachines/admin/units/update/complete",
+        "adminUnitsUpdateSuccess" => "/agrMachines/admin/units/update/success",
+        "adminUnitsInsert"=>"/agrMachines/admin/units/new",
+        "adminUnitsInsertComplete"=>"/agrMachines/admin/units/new/complete",
+        "adminUnitsInsertSuccess"=>"/agrMachines/admin/units/new/success",
+        "adminUnitsDeleteComplete"=>"/agrMachines/admin/units/delete/",
+        "adminUnitsDeleteSuccess"=>"/agrMachines/admin/units/delete/success",
     );
     public function getRoute(){
         return urldecode($_SERVER['REQUEST_URI']);

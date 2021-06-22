@@ -17,7 +17,7 @@
                         <h2 class="pull-right"><?= $orders ?></h2>
                     </div>
                     <div class="tile-footer"><a
-                                href="http://localhost:8888/opencart/admin/index.php?route=sale/order&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Подробнее...</a>
+                                href="<?=$route->map['adminOrders']?>">Подробнее...</a>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <h2 class="pull-right"><?= $sales ?></h2>
                     </div>
                     <div class="tile-footer"><a
-                                href="http://localhost:8888/opencart/admin/index.php?route=sale/order&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Подробнее...</a>
+                                href="<?=$route->map['adminOrders']?>">Подробнее...</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         <h2 class="pull-right"><?= $customers ?></h2>
                     </div>
                     <div class="tile-footer"><a
-                                href="http://localhost:8888/opencart/admin/index.php?route=customer/customer&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Подробнее...</a>
+                                href="#">Подробнее...</a>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                         <h2 class="pull-right"><?= $salons ?></h2>
                     </div>
                     <div class="tile-footer"><a
-                                href="http://localhost:8888/opencart/admin/index.php?route=report/customer_online&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Подробнее...</a>
+                                href="#">Подробнее...</a>
                     </div>
                 </div>
             </div>

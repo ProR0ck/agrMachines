@@ -188,6 +188,58 @@ elseif ($curentRoute == $route->map['adminProducts']) {
     $page = new controller\colorsController();
     $page->display(true);
 }
+//СТРАНЫ
+elseif ($curentRoute == $route->map['adminCountries']) {
+    $page = new controller\countryController();
+    $page->display();
+} elseif ($curentRoute == $route->map['adminCountriesUpdate'] . $id) {
+    $page = new controller\countryController();
+    $page->showUpdate($id);
+} elseif ($curentRoute == $route->map['adminCountriesUpdateComplete']) {
+    $page = new controller\countryController();
+    $page->makeUpdate($_POST);
+} elseif ($curentRoute == $route->map['adminCountriesUpdateSuccess']) {
+    $page = new controller\countryController();
+    $page->display(true);
+} elseif ($curentRoute == $route->map['adminCountriesInsert']) {
+    $page = new controller\countryController();
+    $page->showInsert();
+} elseif ($curentRoute == $route->map['adminCountriesInsertComplete']) {
+    $page = new controller\countryController();
+    $page->makeInsert($_POST);
+} elseif ($curentRoute == $route->map['adminCountriesInsertSuccess']) {
+    $page = new controller\countryController();
+    $page->display(true);
+} elseif ($curentRoute == $route->map['adminCountriesDeleteSuccess']) {
+    $page = new controller\countryController();
+    $page->display(true);
+}
+//ЕДИНИЦЫ ИЗМЕРЕНИЯ
+elseif ($curentRoute == $route->map['adminUnits']) {
+    $page = new controller\unitController();
+    $page->display();
+} elseif ($curentRoute == $route->map['adminUnitsUpdate'] . $id) {
+    $page = new controller\unitController();
+    $page->showUpdate($id);
+} elseif ($curentRoute == $route->map['adminUnitsUpdateComplete']) {
+    $page = new controller\unitController();
+    $page->makeUpdate($_POST);
+} elseif ($curentRoute == $route->map['adminUnitsUpdateSuccess']) {
+    $page = new controller\unitController();
+    $page->display(true);
+} elseif ($curentRoute == $route->map['adminUnitsInsert']) {
+    $page = new controller\unitController();
+    $page->showInsert();
+} elseif ($curentRoute == $route->map['adminUnitsInsertComplete']) {
+    $page = new controller\unitController();
+    $page->makeInsert($_POST);
+} elseif ($curentRoute == $route->map['adminUnitsInsertSuccess']) {
+    $page = new controller\unitController();
+    $page->display(true);
+} elseif ($curentRoute == $route->map['adminUnitsDeleteSuccess']) {
+    $page = new controller\unitController();
+    $page->display(true);
+}
 /*
 elseif (strpos($curentRoute,$route->map['adminCategoriesDeleteComplete']) == 0){
     $page = new controller\categoryController();
