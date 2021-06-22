@@ -74,7 +74,7 @@
             <a class="parent"><i class="fa fa-book"></i> <span>Справочники</span></a>
             <ul>
                 <li>
-                    <a href="http://localhost:8888/opencart/admin/index.php?route=setting/store&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Цвета</a>
+                    <a href="<?=$this->map['adminColors']?>">Цвета</a>
                 </li>
                 <li>
                     <a href="http://localhost:8888/opencart/admin/index.php?route=setting/store&amp;token=3qtlvNhv2UMY5j3EEXe8SPiT6VYrE5we">Страны</a>

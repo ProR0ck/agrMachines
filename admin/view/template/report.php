@@ -35,7 +35,7 @@
                 <div class="panel-body">
                     <?php if ($success) { ?>
                         <div class="alert alert-success" role="alert">
-                            <i class="fa fa-refresh fa-spin"></i>  Отчет успешно сформирован! <br> <a href="<?=$reportLink?>">скачать отчет в формате .docx</a>
+                            <i class="fa fa-refresh fa-spin"></i>  Отчет успешно сформирован! <br> <a href="<?=$reportLink?>"><i class="fa fa-download" aria-hidden="true"></i> скачать отчет в формате .docx</a>
                         </div>
                     <?php } ?>
                     <form action="<?= $this->map['adminReportMake'] ?>" method="post"

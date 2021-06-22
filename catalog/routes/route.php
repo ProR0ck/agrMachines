@@ -70,7 +70,16 @@ class route extends config\config
         "adminOrdersUpdateSuccess" => "/agrMachines/admin/orders/update/success",
         "adminReport" => "/agrMachines/admin/report",
         "adminReportMake" => "/agrMachines/admin/report/make",
-
+        //цвета
+        "adminColors"=>"/agrMachines/admin/colors",
+        "adminColorsUpdate"=>"/agrMachines/admin/colors/update/",
+        "adminColorsUpdateComplete"=>"/agrMachines/admin/colors/update/complete",
+        "adminColorsUpdateSuccess" => "/agrMachines/admin/colors/update/success",
+        "adminColorsInsert"=>"/agrMachines/admin/colors/new",
+        "adminColorsInsertComplete"=>"/agrMachines/admin/colors/new/complete",
+        "adminColorsInsertSuccess"=>"/agrMachines/admin/colors/new/success",
+        "adminColorsDeleteComplete"=>"/agrMachines/admin/colors/delete/",
+        "adminColorsDeleteSuccess"=>"/agrMachines/admin/colors/delete/success",
     );
     public function getRoute(){
         return urldecode($_SERVER['REQUEST_URI']);

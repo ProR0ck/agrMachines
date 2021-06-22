@@ -161,8 +161,32 @@ elseif ($curentRoute == $route->map['adminProducts']) {
     $page->display();
 } elseif ($curentRoute == $route->map['adminReportMake']) {
     $page = new controller\reportController();
-    //print_r($_POST);
     $page->makeReport($_POST);
+    //ЦВЕТА
+} elseif ($curentRoute == $route->map['adminColors']) {
+    $page = new controller\colorsController();
+    $page->display();
+} elseif ($curentRoute == $route->map['adminColorsUpdate'] . $id) {
+    $page = new controller\colorsController();
+    $page->showUpdate($id);
+} elseif ($curentRoute == $route->map['adminColorsUpdateComplete']) {
+    $page = new controller\colorsController();
+    $page->makeUpdate($_POST);
+} elseif ($curentRoute == $route->map['adminColorsUpdateSuccess']) {
+    $page = new controller\colorsController();
+    $page->display(true);
+} elseif ($curentRoute == $route->map['adminColorsInsert']) {
+    $page = new controller\colorsController();
+    $page->showInsert();
+} elseif ($curentRoute == $route->map['adminColorsInsertComplete']) {
+    $page = new controller\colorsController();
+    $page->makeInsert($_POST);
+} elseif ($curentRoute == $route->map['adminColorsInsertSuccess']) {
+    $page = new controller\colorsController();
+    $page->display(true);
+} elseif ($curentRoute == $route->map['adminColorsDeleteSuccess']) {
+    $page = new controller\colorsController();
+    $page->display(true);
 }
 /*
 elseif (strpos($curentRoute,$route->map['adminCategoriesDeleteComplete']) == 0){

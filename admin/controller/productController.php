@@ -31,7 +31,7 @@ class productController extends \admin\models\isUserModel
         if (!$this->is_admin) header("Location: {$this->map['adminAuth']}");
         else {
             $category = new categoryModel();
-            $changeCategory = $category->getCategory($id);
+            $changeCategory = $category->getColor($id);
 
             $this->show("Изменение категории",(__FUNCTION__),$changeCategory);
         }
