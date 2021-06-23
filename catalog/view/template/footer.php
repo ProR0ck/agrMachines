@@ -50,7 +50,7 @@
             </div>
         </div>
         <hr>
-        <p>Developer - Antonova</p>
+        <p>Developer - ProR0ck</p>
     </div>
 </footer>
 </body>
